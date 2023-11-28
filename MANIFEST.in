@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include regina *.css
+recursive-include regina *.csv
+recursive-include regina *.html
+recursive-include regina *.ico
+recursive-include regina *.js
+recursive-include regina *.json
+recursive-include regina *.md
+recursive-include regina *.png
+recursive-include regina *.py
+recursive-include regina *.svg
+recursive-include regina *.txt
+recursive-exclude regina *.pyc
