@@ -1,0 +1,82 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-11-29 14:53:20.954166",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "contract_serial_number",
+  "contract_status",
+  "contract_type",
+  "contract",
+  "send_date",
+  "receive_date",
+  "document_method"
+ ],
+ "fields": [
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "contract_serial_number",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Contract Serial Number",
+   "options": "Contract Serial Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contract_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Contract Status",
+   "options": "Send\nCompleted\nDisabled",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "contract",
+   "fieldtype": "Link",
+   "label": "Contract",
+   "options": "Contract"
+  },
+  {
+   "fetch_from": "contract_serial_number.contract_type",
+   "fieldname": "contract_type",
+   "fieldtype": "Link",
+   "label": "Contract Type",
+   "options": "Contract Type"
+  },
+  {
+   "fieldname": "send_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Send Date"
+  },
+  {
+   "fieldname": "receive_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Receive Date"
+  },
+  {
+   "default": "Send",
+   "fieldname": "document_method",
+   "fieldtype": "Select",
+   "label": "Document Method",
+   "options": "Send\nReceive",
+   "read_only": 1,
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-12-07 11:01:02.590390",
+ "modified_by": "Administrator",
+ "module": "Contract Management",
+ "name": "Contract Management Items",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

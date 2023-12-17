@@ -1,0 +1,44 @@
+{
+ "cards_label": "Regina",
+ "category": "Modules",
+ "charts": [],
+ "creation": "2023-11-28 13:28:48.319015",
+ "developer_mode_only": 0,
+ "disable_user_customization": 0,
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "extends_another_page": 0,
+ "hide_custom": 0,
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "label": "Regina",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Agent",
+   "link_to": "Agent",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2023-11-28 16:53:21.844132",
+ "modified_by": "Administrator",
+ "module": "Regina",
+ "name": "Regina",
+ "onboarding": "",
+ "owner": "Administrator",
+ "pin_to_bottom": 0,
+ "pin_to_top": 1,
+ "shortcuts": [
+  {
+   "doc_view": "List",
+   "label": "Agent",
+   "link_to": "Agent",
+   "type": "DocType"
+  }
+ ],
+ "shortcuts_label": "Regina"
+}

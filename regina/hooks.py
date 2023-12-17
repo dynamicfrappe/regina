@@ -31,8 +31,26 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
-# doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
+# is_frappe_above_v13 = int(frappe_version.split('.')[0]) > 13
+
+# Includes in <head>
+# ------------------
+
+# include js, css files in header of desk.html
+
+
+
+# include js, css files in header of web template
+# app_include_css = ['chat.bundle.css'] if is_frappe_above_v13 else [
+#     '/assets/css/chat.css']
+# app_include_js = ['chat.bundle.js'] if is_frappe_above_v13 else [
+#     '/assets/js/chat.js']
+# web_include_css = ['chat.bundle.css'] if is_frappe_above_v13 else [
+#     '/assets/css/chat.css']
+# web_include_js = ['chat.bundle.js'] if is_frappe_above_v13 else [
+#     '/assets/js/chat.js']
+# doctype_js =      {"Contract" :  "override/contract/contract.js"}
+# doctype_list_js = {"Contract" :  "override/contract/contract_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
@@ -87,9 +105,10 @@ app_license = "MIT"
 # ---------------
 # Override standard doctype classes
 
-# override_doctype_class = {
-# 	"ToDo": "custom_app.overrides.CustomToDo"
-# }
+override_doctype_class = {
+	"Contract": "regina.override.contract.contract.Contract"
+    
+}
 
 # Document Events
 # ---------------
@@ -186,3 +205,11 @@ user_data_fields = [
 # Recommended only for DocTypes which have limited documents with untranslated names
 # For example: Role, Gender, etc.
 # translated_search_doctypes = []
+on_session_creation = "regina.override.auth.update_representative_status"
+on_logout = (
+					"regina.override.auth.clear_session_defaults"
+				)
+after_migrate="regina.on_migrate.make_migrations"
+domains = {
+    "Time Share" : "regina.domains.time_share"
+}
