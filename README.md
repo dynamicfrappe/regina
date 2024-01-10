@@ -56,3 +56,10 @@ Assign to representative  / get Current Available Representative
  Customer DocType
  Item DocType 
 
+-- room number 
+-- room type (one , two or three beds)  --link new doctype ( initial values) 
+-- room view (see th see or not)  - link 
+--  brand -- we will make resort as brand 
+-- location -- select -- doctype -- resort ()
+
+contract 
