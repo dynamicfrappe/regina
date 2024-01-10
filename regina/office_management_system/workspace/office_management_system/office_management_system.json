@@ -33,7 +33,7 @@
    "type": "Link"
   }
  ],
- "modified": "2023-12-10 16:03:18.138745",
+ "modified": "2023-12-19 16:19:43.594111",
  "modified_by": "Administrator",
  "module": "Office Management System",
  "name": "Office Management System",
@@ -51,6 +51,12 @@
    "doc_view": "List",
    "label": "Representative",
    "link_to": "Representative",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Representative Task",
+   "link_to": "Representative Task",
    "type": "DocType"
   }
  ],
