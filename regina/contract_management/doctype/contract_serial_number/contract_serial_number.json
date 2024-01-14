@@ -21,7 +21,14 @@
   "column_break_12",
   "recieve_date",
   "rejected_reason_section",
-  "reason"
+  "reason",
+  "unit_info_section",
+  "unit",
+  "week",
+  "room_type",
+  "column_break_20",
+  "item_group",
+  "brand"
  ],
  "fields": [
   {
@@ -110,11 +117,50 @@
    "fieldtype": "Text Editor",
    "label": " Reason",
    "mandatory_depends_on": "eval:doc.rejected ==1;"
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Unit",
+   "options": "Item"
+  },
+  {
+   "fieldname": "week",
+   "fieldtype": "Link",
+   "label": "Week",
+   "options": "Week Number"
+  },
+  {
+   "fieldname": "room_type",
+   "fieldtype": "Link",
+   "label": "Room Type",
+   "options": "Room Type"
+  },
+  {
+   "fieldname": "unit_info_section",
+   "fieldtype": "Section Break",
+   "label": "Unit Info"
+  },
+  {
+   "fieldname": "column_break_20",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "item_group",
+   "fieldtype": "Link",
+   "label": "Item Group",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "brand",
+   "fieldtype": "Link",
+   "label": "Brand",
+   "options": "Brand"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-10 12:52:43.055810",
+ "modified": "2024-01-14 19:12:49.334194",
  "modified_by": "Administrator",
  "module": "Contract Management",
  "name": "Contract Serial Number",

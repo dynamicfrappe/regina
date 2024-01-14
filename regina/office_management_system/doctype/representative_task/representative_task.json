@@ -1,13 +1,16 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{channel}-{agent}-.####",
+ "autoname": "format:{channel}-{agent}-.{####}",
  "creation": "2023-12-10 17:18:08.281864",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "status",
+  "column_break_2",
+  "start_time",
+  "end_on",
   "connection_channels_section",
   "channel",
   "section_break_3",
@@ -49,6 +52,8 @@
    "reqd": 1
   },
   {
+   "allow_in_quick_entry": 1,
+   "default": "Waiting",
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
@@ -96,11 +101,30 @@
    "fieldname": "customer_name",
    "fieldtype": "Data",
    "label": "Customer Name"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.status==\"Close\";",
+   "fieldname": "end_on",
+   "fieldtype": "Datetime",
+   "label": "End On",
+   "mandatory_depends_on": "eval:doc.status==\"Close\";"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "depends_on": "eval:doc.status != \"Waiting\"",
+   "fieldname": "start_time",
+   "fieldtype": "Datetime",
+   "label": "Start On",
+   "mandatory_depends_on": "eval:doc.status == \"Active\""
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-11 15:08:28.749351",
+ "modified": "2024-01-14 19:51:46.373933",
  "modified_by": "Administrator",
  "module": "Office Management System",
  "name": "Representative Task",

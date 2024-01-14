@@ -1,0 +1,19 @@
+Item Master Data 
+
+Link documents
+Brand -- Table  is the resort name 
+Room Type -- Table   -- room capacity
+Item Group -- Table
+Room View -- Table 
+Location -- Table
+
+
+text Data 
+Room Number -- Unique and required 
+Description	
+
+
+
+weeks 
+in Management Settings set Weeks Count For Sales 
+System will create weeks for one to Weeks Count For Sales By default its will be 52 

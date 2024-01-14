@@ -1,0 +1,114 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-01-14 19:01:16.289853",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "capacity",
+  "total_payment_amount",
+  "column_break_3",
+  "advance_payment",
+  "agent_info_section",
+  "agent__fees",
+  "agent_fee_discount_tax",
+  "column_break_7",
+  "agent__fees_tax",
+  "main_info_section",
+  "total_reserved_payments",
+  "administrative_cash_supplies"
+ ],
+ "fields": [
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "capacity",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Capacity",
+   "options": "Room Type",
+   "reqd": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "total_payment_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Total Payment Amount",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "advance_payment",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Advance payment",
+   "reqd": 1
+  },
+  {
+   "fieldname": "agent_info_section",
+   "fieldtype": "Section Break",
+   "label": "Agent Info"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "agent__fees",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Agent  fees",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "agent__fees_tax",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Agent  fees Tax"
+  },
+  {
+   "fieldname": "main_info_section",
+   "fieldtype": "Section Break",
+   "label": "Main Info"
+  },
+  {
+   "fieldname": "agent_fee_discount_tax",
+   "fieldtype": "Currency",
+   "label": "Agent fee discount Tax"
+  },
+  {
+   "fieldname": "total_reserved_payments",
+   "fieldtype": "Currency",
+   "label": "Total Reserved Payments"
+  },
+  {
+   "fieldname": "administrative_cash_supplies",
+   "fieldtype": "Currency",
+   "label": "Administrative cash supplies"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-01-14 19:02:27.897076",
+ "modified_by": "Administrator",
+ "module": "Contract Management",
+ "name": "Agent Price List",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

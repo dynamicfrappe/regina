@@ -19,3 +19,8 @@ def receive_contract(doc, *args , **kwargs) :
    contract.contract_terms = terms
    contract.save()
    return contract.name 
+
+
+
+
+

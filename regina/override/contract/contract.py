@@ -5,13 +5,60 @@ from frappe.model.naming import set_name_by_naming_series
 from frappe.utils import getdate, nowdate
 
 
-
+from regina.controllers.items import get_reserved_weeks
 
 class Contract(Document):
+	def validate_week_with_item(self) :
+		if not self.week and self.unit :
+			frappe.throw(_(f"Please Set week for unit {self.unit}"))
+		reserved_weeks = get_reserved_weeks(self.unit)
+		if self.week in reserved_weeks[0] :
+			frappe.throw(_(f""" Unit number {self.unit} Week {self.week} """))
+	def create_week_ben_ledger(self) :
+		# create ledger 
+		ledger = frappe.new_doc("Week Ben Ledger") 
+		ledger.unit = self.unit
+		ledger.week = self.week
+		ledger.contract = self.name
+		ledger.customer = self.party_name
+		ledger.save()
+		#check if item has Week Ben List 
+		
+		if frappe.db.exists("Week Ben List", {"unit": self.unit }):
+			# update unit available weeks 
+			# We need to update this function  
+			item_ben = frappe.get_doc("Week Ben List", {"unit": self.unit })
+			item_ben.reserved_weeks = int(item_ben.reserved_weeks) +1
+			item_ben.available_weeks = item_ben.available_weeks -1
+			item_ben.save()
+		if not frappe.db.exists("Week Ben List", {"unit": self.unit }):
+			#create  
+			item_ben = frappe.new_doc("Week Ben List") 
+			item_ben.unit = self.unit 
+			item_ben.total_weeks = frappe.db.get_single_value('Management Settings', 'weeks_count_for_sales')
+			item_ben.reserved_weeks = 1 
+			item_ben.available_weeks= int(item_ben.total_weeks) - 1 
+			item_ben.save()
+
+		
+	def on_submit(self) :
+
+		"""
+		submit functions 
+		1 - validate week number 
+		2 - Create Week Ben Ledger
+		3 - Update or create Week Ben List
+		
+		
+		
+		
+		"""
+		self.validate_week_with_item()
+		self.create_week_ben_ledger()
+		# frappe.throw("submit Functions ")
 	def autoname(self):
 		if frappe.db.get_single_value("Selling Settings", "contract_naming_by") == "Naming Series":
 			set_name_by_naming_series(self)
-
 		else:
 			name = self.party_name
 
@@ -122,7 +169,7 @@ def get_status(start_date, end_date):
 
 	return "Active" if start_date <= now_date <= end_date else "Inactive"
 
-
+	
 def update_status_for_contracts():
 	"""
 	Run the daily hook to update the statuses for all signed
@@ -137,5 +184,4 @@ def update_status_for_contracts():
 
 	for contract in contracts:
 		status = get_status(contract.get("start_date"), contract.get("end_date"))
-
 		frappe.db.set_value("Contract", contract.get("name"), "status", status)

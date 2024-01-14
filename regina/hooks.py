@@ -193,6 +193,7 @@ user_data_fields = [
 
 doctype_js = {
     "Customer": "public/js/customer.js",
+    "Contract": "public/js/contract/contract.js",
 }
 
 # Authentication and authorization

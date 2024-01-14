@@ -1,0 +1,62 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-01-14 14:44:04.620907",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "weeks_count_for_sales",
+  "dont_validate_room_in_contract",
+  "initial_data_section_section",
+  "init_data"
+ ],
+ "fields": [
+  {
+   "default": "52",
+   "fieldname": "weeks_count_for_sales",
+   "fieldtype": "Data",
+   "label": "Weeks Count For Sales"
+  },
+  {
+   "default": "0",
+   "description": "If you check this button you will can add same week for same room  in more than contract ",
+   "fieldname": "dont_validate_room_in_contract",
+   "fieldtype": "Check",
+   "label": "Dont validate room in contract"
+  },
+  {
+   "fieldname": "initial_data_section_section",
+   "fieldtype": "Section Break",
+   "label": "Initial Data Section"
+  },
+  {
+   "default": "0",
+   "fieldname": "init_data",
+   "fieldtype": "Check",
+   "label": "Init Data"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-01-14 15:34:44.145235",
+ "modified_by": "Administrator",
+ "module": "Regina",
+ "name": "Management Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

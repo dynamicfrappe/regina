@@ -3,7 +3,7 @@
 
 frappe.ui.form.on("Contract", {
 	onload: function(frm) {
-		console.log("OverRide")
+		console.log ("Overide")
 		frappe.db.get_value(
 			"Selling Settings",
 			"Selling Settings",
@@ -13,6 +13,33 @@ frappe.ui.form.on("Contract", {
 			}
 		);
 	},
+
+	unit:function(frm){
+		if (frm.doc.unit) {
+			
+			frm.set_df_property("week" , "reqd" , 1)
+		} else {
+
+			frm.set_df_property("week" , "reqd" , 0)
+		}
+		
+		// frm.refresh_field("week")
+		frm.events.set_week_qey(frm)
+		
+	},
+	set_week_qey:function(frm) {
+		frm.set_query("week", function() {
+			return {
+				query: "regina.controllers.items.get_available_weeks_for_item",
+				"filters": {"item": frm.doc.unit} 
+		  };
+		 }
+
+		)
+	
+	} ,
+
+
 
 	contract_template: function (frm) {
 		if (frm.doc.contract_template) {

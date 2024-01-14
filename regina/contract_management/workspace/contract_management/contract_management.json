@@ -13,7 +13,7 @@
  "is_standard": 1,
  "label": "Contract Management",
  "links": [],
- "modified": "2023-11-29 15:45:56.381600",
+ "modified": "2024-01-14 18:17:41.903867",
  "modified_by": "Administrator",
  "module": "Contract Management",
  "name": "Contract Management",
@@ -49,6 +49,12 @@
    "doc_view": "List",
    "label": "Contracts",
    "link_to": "Contracts Management",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Annual Services Type",
+   "link_to": "Annual Services Type",
    "type": "DocType"
   }
  ],
