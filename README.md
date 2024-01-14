@@ -31,7 +31,9 @@ data
 representative -- object linked with email/user -- done
  have static values name /Phone Number /Office Number (if user set) 
 -- has status
-
+-- representative should have system user email 
+when user login system set representative on line 
+When user log out system set representative off line 
 
 Channels / visit / whatsApp / Phone 
 
