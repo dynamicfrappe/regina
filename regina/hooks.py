@@ -191,6 +191,10 @@ user_data_fields = [
 	}
 ]
 
+doctype_js = {
+    "Customer": "public/js/customer.js",
+}
+
 # Authentication and authorization
 # --------------------------------
 
