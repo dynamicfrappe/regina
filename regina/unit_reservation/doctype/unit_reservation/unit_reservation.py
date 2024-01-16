@@ -9,6 +9,7 @@ class UnitReservation(Document):
 	
 	
 	def validate(self):
-		dt = datetime.strptime(self.from_date, '%Y-%m-%d')
-		if dt.year == self.year:
-			...
+		dt_from = datetime.strptime(self.from_date, '%Y-%m-%d')
+		dt_to = datetime.strptime(self.to_date, '%Y-%m-%d')
+		if str(dt_from.year) != self.year or str(dt_to.year) != self.year:
+			frappe.throw("Year in Date Should Be Same in Year")

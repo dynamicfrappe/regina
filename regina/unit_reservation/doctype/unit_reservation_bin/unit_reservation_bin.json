@@ -1,0 +1,74 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:Unit-RESV-BIN-{unit}-{year}",
+ "creation": "2024-01-16 13:05:38.921277",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "year",
+  "unit",
+  "available_unit",
+  "reserved_days",
+  "valid_days"
+ ],
+ "fields": [
+  {
+   "fieldname": "year",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Year",
+   "options": "Year"
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Unit",
+   "options": "Item"
+  },
+  {
+   "fieldname": "available_unit",
+   "fieldtype": "Int",
+   "label": "Available Unit"
+  },
+  {
+   "fieldname": "reserved_days",
+   "fieldtype": "Int",
+   "label": "Reserved Days"
+  },
+  {
+   "fieldname": "valid_days",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Valid Days"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-16 13:21:41.705889",
+ "modified_by": "Administrator",
+ "module": "Unit Reservation",
+ "name": "Unit Reservation Bin",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
