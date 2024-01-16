@@ -99,6 +99,7 @@ Advance payment + Total Reserved Payments = Total Payment Amount validation /aut
 
 create year doctype should be valid year from range (1990 - to 2050) 
 how it work 
+
 reception send customer to sales man 
 
 in customer reservation page  we need to  ad view button under view add two button show history /reservation history 
