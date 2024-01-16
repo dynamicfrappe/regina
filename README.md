@@ -120,9 +120,21 @@ unit       -- link to item
 unit filter -- get all item with no reservation in date range with apply filetrs brand / item group /room type 
 
 
+#customer reservation ledger 
+where contract created system should create customer ledger 
+depend on contract weeks count / week days count will set by user in Management Settings filed name week days 
 
-#reservation_bin doctype fields unit --link to item / customer link to customer / date from - date to / agent / year --link to year doctype 
-unit location / unit view 
+
+#reservation_bin doctype 
+fields unit --link to item /
+customer link to customer /
+contract link to contract 
+date from - date to /
+days count - number / read only /calculate days count from start to end 
+agent /
+year --link to year doctype 
+unit location /
+unit view 
 
 #unit bin doctype unit year --link to year 
 each year has its bin  / each item has one bin for one year / 
