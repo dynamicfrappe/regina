@@ -20,6 +20,13 @@
   "column_break_7",
   "managet_contact",
   "m_n_i",
+  "agent_service_section",
+  "agent_item",
+  "delegator_section",
+  "del_name",
+  "del_phone",
+  "column_break_17",
+  "del_email",
   "addresses_details_section",
   "address_title",
   "column_break_11",
@@ -36,7 +43,8 @@
   "phone",
   "fax",
   "price_list_section",
-  "agent_price_list"
+  "agent_price_list",
+  "annual_services"
  ],
  "fields": [
   {
@@ -199,6 +207,47 @@
    "fieldtype": "Table",
    "label": "Agent Price List",
    "options": "Agent Price List"
+  },
+  {
+   "fieldname": "annual_services",
+   "fieldtype": "Table",
+   "label": "Annual Services",
+   "options": "Annual Services"
+  },
+  {
+   "fieldname": "delegator_section",
+   "fieldtype": "Section Break",
+   "label": "Delegator"
+  },
+  {
+   "fieldname": "del_name",
+   "fieldtype": "Data",
+   "label": "Del Name"
+  },
+  {
+   "fieldname": "del_phone",
+   "fieldtype": "Data",
+   "label": "Del Phone"
+  },
+  {
+   "fieldname": "column_break_17",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "del_email",
+   "fieldtype": "Data",
+   "label": "Del Email"
+  },
+  {
+   "fieldname": "agent_service_section",
+   "fieldtype": "Section Break",
+   "label": "Agent Service"
+  },
+  {
+   "fieldname": "agent_item",
+   "fieldtype": "Table",
+   "label": "Agent Item",
+   "options": "Agent Item"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -208,7 +257,7 @@
    "link_fieldname": "agent"
   }
  ],
- "modified": "2024-01-14 19:01:39.758258",
+ "modified": "2024-01-15 13:42:21.957471",
  "modified_by": "Administrator",
  "module": "Regina",
  "name": "Agent",

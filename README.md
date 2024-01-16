@@ -70,3 +70,12 @@ Payment terms        -- added to contract
 Annual Services Type -- added to contract to add any service will payed annual 
 Create Week Ben List To get Available Weeks For item and reserved weeks 
 Create Week Ben Ledger To get Unit Validation For Buying 
+
+
+
+## Archived System 
+
+Document typ -- payment or item 
+Date 
+customer 
+Amount
