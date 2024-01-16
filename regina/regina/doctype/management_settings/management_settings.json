@@ -7,8 +7,12 @@
  "engine": "InnoDB",
  "field_order": [
   "weeks_count_for_sales",
-  "dont_validate_room_in_contract",
+  "week_day_count",
+  "column_break_3",
+  "check_in_hour",
+  "check_out_hour",
   "initial_data_section_section",
+  "dont_validate_room_in_contract",
   "init_data"
  ],
  "fields": [
@@ -35,12 +39,32 @@
    "fieldname": "init_data",
    "fieldtype": "Check",
    "label": "Init Data"
+  },
+  {
+   "default": "7",
+   "fieldname": "week_day_count",
+   "fieldtype": "Data",
+   "label": "Week Day Count"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "check_in_hour",
+   "fieldtype": "Time",
+   "label": "Check in Hour"
+  },
+  {
+   "fieldname": "check_out_hour",
+   "fieldtype": "Time",
+   "label": "Check Out Hour"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-01-14 15:34:44.145235",
+ "modified": "2024-01-16 12:00:43.285931",
  "modified_by": "Administrator",
  "module": "Regina",
  "name": "Management Settings",

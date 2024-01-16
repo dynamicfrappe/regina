@@ -28,7 +28,7 @@ frappe.ui.form.on("Contract", {
 		
 	},
 	set_week_qey:function(frm) {
-		frm.set_query("week", function() {
+		frm.set_query("Items" ,"week", function() {
 			return {
 				query: "regina.controllers.items.get_available_weeks_for_item",
 				"filters": {"item": frm.doc.unit} 
@@ -69,3 +69,14 @@ frappe.ui.form.on("Contract", {
 		}
 	}
 });
+
+
+
+frappe.ui.form.on('Items', {
+	items_add:function(frm , cdt,cdn) {
+			console.log("Catched")
+	}
+
+
+
+})
