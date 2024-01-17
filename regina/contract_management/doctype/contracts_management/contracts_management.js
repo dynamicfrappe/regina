@@ -8,12 +8,15 @@ frappe.ui.form.on('Contracts Management', {
 		frm.refresh_field("items")
 	},
 	onload:function(frm){
-		console.log("Load")
-		frm.events.clear_child_table(frm)
-		frm.set_df_property("items", "read_only", 1);
+		
+		if (frm.doc.__unsaved) {
+			frm.events.clear_child_table(frm)
+			frm.set_df_property("items", "read_only", 1);
+		}
+		
 	},
 	agent:function(frm) {
-		console.log("Agent")
+	
 		frm.events.clear_child_table(frm)
 	} ,
 	document_method:function(frm){
@@ -50,22 +53,45 @@ frappe.ui.form.on('Contracts Management', {
 
 
 frappe.ui.form.on("Contract Management Items" ,{
-	contract_serial_number:function(frm ,cdt,cdn){
-		console.log(locals[cdt][cdn])
-	},
-	items_add:function(frm  ,cdt,cdn){
+	onload:function(frm) {
 		var row = frm.get_field('items').grid.get_row(cdn) 
+		// var df = frappe.meta.get_docfield("Contract Management Items","receive_date", frm.doc.name)
 		var df = frappe.meta.get_docfield("Contract Management Items","receive_date", frm.doc.name)
 		df.read_only = 1;
-		frm.refresh_field("items")
-		console.log(row)
+		var tppc = frappe.meta.get_docfield("Contract Management Items","total_payment_papers_count", frm.doc.name)
+		tppc.read_only = 1;
+		var tc = frappe.meta.get_docfield("Contract Management Items","total_cash", frm.doc.name)
+		tc.read_only = 1;
+		var tpp = frappe.meta.get_docfield("Contract Management Items","total_payment_papers", frm.doc.name)
+		tpp.read_only = 1;
+		frm.refresh_field("items") 
+	},
+	
+	items_add:function(frm  ,cdt,cdn){
+	
+		// frm.refresh_field("items")
+	
 		if (frm.doc.document_method =='Send' ){
 			locals[cdt][cdn].send_date=frm.doc.date
-			row.toggle_editable("receive_date", 1);
-			frm.set_df_property("receive_date", "items","read_only", 1);
-			frm.refresh_field("items")
+			// var rd = frappe.meta.get_docfield("Contract Management Items","receive_date", frm.doc.name)
+			// rd.read_only = 1
+			var tppc = frappe.meta.get_docfield("Contract Management Items","total_payment_papers_count", frm.doc.name)
+			tppc.read_only = 1;
+			var tc = frappe.meta.get_docfield("Contract Management Items","total_cash", frm.doc.name)
+			tc.read_only = 1;
+			var tpp = frappe.meta.get_docfield("Contract Management Items","total_payment_papers", frm.doc.name)
+			tpp.read_only = 1;
+			frm.refresh_field("items") 
 		}else {
 			locals[cdt][cdn].receive_date=frm.doc.date
+			var rd = frappe.meta.get_docfield("Contract Management Items","receive_date", frm.doc.name)
+			rd.read_only = 0
+			var tppc = frappe.meta.get_docfield("Contract Management Items","total_payment_papers_count", frm.doc.name)
+			tppc.read_only = 0;
+			var tc = frappe.meta.get_docfield("Contract Management Items","total_cash", frm.doc.name)
+			tc.read_only = 0;
+			var tpp = frappe.meta.get_docfield("Contract Management Items","total_payment_papers", frm.doc.name)
+			tpp.read_only = 0;
 			frm.refresh_field("items")
 		}
 		

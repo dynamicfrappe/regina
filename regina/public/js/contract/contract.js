@@ -3,7 +3,7 @@
 
 frappe.ui.form.on("Contract", {
 	onload: function(frm) {
-		console.log ("Overide")
+
 		frappe.db.get_value(
 			"Selling Settings",
 			"Selling Settings",
@@ -27,15 +27,19 @@ frappe.ui.form.on("Contract", {
 		frm.events.set_week_qey(frm)
 		
 	},
+
+
 	set_week_qey:function(frm) {
-		frm.set_query("Items" ,"week", function() {
+
+		frm.set_query("week", "items" , function() {
 			return {
 				query: "regina.controllers.items.get_available_weeks_for_item",
-				"filters": {"item": frm.doc.unit} 
+				"filters": {"item": frm.doc.unit } 
 		  };
 		 }
 
 		)
+		// frm.refresh_field("items")
 	
 	} ,
 
@@ -72,9 +76,28 @@ frappe.ui.form.on("Contract", {
 
 
 
-frappe.ui.form.on('Items', {
+frappe.ui.form.on("Contract Items", {
+	onload:function(frm ,cdt ,cdn) {
+			console.log("Items")
+	},
 	items_add:function(frm , cdt,cdn) {
-			console.log("Catched")
+		var local = locals[cdt][cdn]
+		local.unit = frm.doc.unit
+		frm.events.set_week_qey(frm)
+	},
+
+	week:function(frm,cdt,cdn){
+		var local = locals[cdt][cdn]
+
+		if (frm.doc.items){
+			frm.doc.items.forEach(element => {
+				if (element.week == local.week && element.idx != local.idx){
+					frappe.msgprint(`duplicated week ${local.week}`)
+					local.week = ' '
+				}
+			});
+		}
+		
 	}
 
 

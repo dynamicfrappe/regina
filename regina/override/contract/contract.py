@@ -12,8 +12,9 @@ class Contract(Document):
 		if not self.week and self.unit :
 			frappe.throw(_(f"Please Set week for unit {self.unit}"))
 		reserved_weeks = get_reserved_weeks(self.unit)
-		if self.week in reserved_weeks[0] :
-			frappe.throw(_(f""" Unit number {self.unit} Week {self.week} """))
+		for item in self.items :
+			if item.week in reserved_weeks[0] :
+				frappe.throw(_(f""" Unit number {self.unit} Week {item.week} is Reserved for other Contract"""))
 	def create_week_ben_ledger(self) :
 		# create ledger 
 		ledger = frappe.new_doc("Week Ben Ledger") 
@@ -82,6 +83,7 @@ class Contract(Document):
 		self.update_contract_status()
 		self.update_fulfilment_status()
 		self.validate_serial_number()
+		self.validate_week_with_item()
 	def validate_serial_number(self):
 		if self.contract_serial_number :
 			agent , status , contract = frappe.db.get_value("Contract Serial Number" ,self.contract_serial_number ,

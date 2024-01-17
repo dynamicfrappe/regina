@@ -12,10 +12,11 @@ def get_reserved_weeks(item) :
 
 
 @frappe.whitelist()
-# @frappe.validate_and_sanitize_search_inputs
+#@frappe.validate_and_sanitize_search_inputs --later update 
 def get_available_weeks_for_item(* args , **kwargs ) :
-
+   print(f"+++++++++++++++++++++++ Got You +++++++++++++++++++++++++++ {args}")
    item = args[-1].get("item")
+  
    """
    item  : item code As string 
    return All weeks number that item has no reservation 
@@ -24,6 +25,8 @@ def get_available_weeks_for_item(* args , **kwargs ) :
       SELECT name FROM `tabWeek Number` 
       where name not in (
        SELECT week FROM `tabWeek Ben Ledger` WHERE unit='{item}'
-       );
+        ) 
        """ )
-   return reserved_weeks 
+   
+   
+   return  reserved_weeks

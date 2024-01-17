@@ -19,7 +19,8 @@
   "total_reserved_payments",
   "administrative_cash_supplies",
   "company_name",
-  "contract_type"
+  "contract_type",
+  "annual_services"
  ],
  "fields": [
   {
@@ -112,12 +113,18 @@
    "fieldtype": "Link",
    "label": "Contract Type",
    "options": "Contract Type"
+  },
+  {
+   "fieldname": "annual_services",
+   "fieldtype": "Link",
+   "label": "Annual Services ",
+   "options": "Annual Services Template"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-01-15 13:48:19.916730",
+ "modified": "2024-01-17 15:17:49.836350",
  "modified_by": "Administrator",
  "module": "Contract Management",
  "name": "Agent Price List",

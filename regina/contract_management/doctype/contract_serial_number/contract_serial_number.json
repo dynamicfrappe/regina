@@ -28,7 +28,13 @@
   "room_type",
   "column_break_20",
   "item_group",
-  "brand"
+  "brand",
+  "collection_section_section",
+  "total_cash",
+  "total_payment_document_amount",
+  "column_break_26",
+  "total_payment_documentcount",
+  "grand_total"
  ],
  "fields": [
   {
@@ -156,11 +162,44 @@
    "fieldtype": "Link",
    "label": "Brand",
    "options": "Brand"
+  },
+  {
+   "fieldname": "collection_section_section",
+   "fieldtype": "Section Break",
+   "label": "Collection Section"
+  },
+  {
+   "fieldname": "total_cash",
+   "fieldtype": "Data",
+   "label": "Total Cash",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_payment_document_amount",
+   "fieldtype": "Data",
+   "label": "Total Payment Document Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_26",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_payment_documentcount",
+   "fieldtype": "Data",
+   "label": "Total Payment DocumentCount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "grand_total",
+   "fieldtype": "Data",
+   "label": "Grand Total",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-14 19:12:49.334194",
+ "modified": "2024-01-16 17:38:48.045178",
  "modified_by": "Administrator",
  "module": "Contract Management",
  "name": "Contract Serial Number",

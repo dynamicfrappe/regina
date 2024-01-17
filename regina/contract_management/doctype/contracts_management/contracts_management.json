@@ -14,6 +14,12 @@
   "document_method",
   "section_break_4",
   "items",
+  "section_break_8",
+  "total_cash",
+  "total_payment_paper_amount",
+  "column_break_11",
+  "total_payment_paper_count",
+  "grand_total",
   "amended_from"
  ],
  "fields": [
@@ -72,12 +78,47 @@
    "label": "Document Method",
    "options": "\nSend\nReceive",
    "reqd": 1
+  },
+  {
+   "collapsible": 1,
+   "collapsible_depends_on": "eval:doc.document_method == \"Receive\" ;",
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break",
+   "label": "Collection Data"
+  },
+  {
+   "fieldname": "total_cash",
+   "fieldtype": "Data",
+   "label": "Total Cash",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_payment_paper_amount",
+   "fieldtype": "Data",
+   "label": "Total Payment Paper Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_payment_paper_count",
+   "fieldtype": "Data",
+   "label": "total Payment Paper count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "grand_total",
+   "fieldtype": "Data",
+   "label": "Grand Total",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-11-29 16:01:16.336265",
+ "modified": "2024-01-16 17:01:52.566361",
  "modified_by": "Administrator",
  "module": "Contract Management",
  "name": "Contracts Management",

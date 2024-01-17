@@ -12,7 +12,12 @@
   "contract",
   "send_date",
   "receive_date",
-  "document_method"
+  "document_method",
+  "column_break_8",
+  "total_cash",
+  "total_payment_papers",
+  "total_payment_papers_count",
+  "total_amount"
  ],
  "fields": [
   {
@@ -66,12 +71,36 @@
    "options": "Send\nReceive",
    "read_only": 1,
    "reqd": 1
+  },
+  {
+   "fieldname": "total_cash",
+   "fieldtype": "Data",
+   "label": "Total Cash"
+  },
+  {
+   "fieldname": "total_payment_papers",
+   "fieldtype": "Data",
+   "label": "Total Payment Papers Amount"
+  },
+  {
+   "fieldname": "total_payment_papers_count",
+   "fieldtype": "Data",
+   "label": "Total Payment Papers Count"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Data",
+   "label": "Total Amount"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-12-07 11:01:02.590390",
+ "modified": "2024-01-16 16:53:52.896339",
  "modified_by": "Administrator",
  "module": "Contract Management",
  "name": "Contract Management Items",
