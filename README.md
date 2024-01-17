@@ -136,10 +136,12 @@ year --link to year doctype
 unit location /
 unit view 
 
-#unit bin doctype unit year --link to year 
+# unit reservation bin unit year --link to year 
 each year has its bin  / each item has one bin for one year / 
 available unit is the second field  it should be 366 day 
 reserved days float field (should be the sum of all reserved days in unit with same year)
+
+valid days ==> count(availd-reserved)
 
  
 
