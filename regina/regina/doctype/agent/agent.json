@@ -21,10 +21,10 @@
   "managet_contact",
   "m_n_i",
   "delegator_section",
-  "del_name",
-  "del_phone",
+  "delegator_name",
+  "delegator_phone",
   "column_break_17",
-  "del_email",
+  "delegator_email",
   "addresses_details_section",
   "address_title",
   "column_break_11",
@@ -41,8 +41,9 @@
   "phone",
   "fax",
   "price_list_section",
-  "agent_price_list",
-  "annual_services"
+  "apply_default_tax_template",
+  "tax_template",
+  "agent_price_list"
  ],
  "fields": [
   {
@@ -207,32 +208,40 @@
    "options": "Agent Price List"
   },
   {
-   "fieldname": "annual_services",
-   "fieldtype": "Table",
-   "label": "Annual Services",
-   "options": "Annual Services"
-  },
-  {
    "fieldname": "delegator_section",
    "fieldtype": "Section Break",
    "label": "Delegator"
-  },
-  {
-   "fieldname": "del_name",
-   "fieldtype": "Data",
-   "label": "Del Name"
-  },
-  {
-   "fieldname": "del_phone",
-   "fieldtype": "Data",
-   "label": "Del Phone"
   },
   {
    "fieldname": "column_break_17",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "del_email",
+   "default": "1",
+   "fieldname": "apply_default_tax_template",
+   "fieldtype": "Check",
+   "label": "Apply Default tax Template"
+  },
+  {
+   "depends_on": "eval:doc.apply_default_tax_template == 0 ;",
+   "fieldname": "tax_template",
+   "fieldtype": "Link",
+   "label": "Tax Template",
+   "mandatory_depends_on": "eval:doc.apply_default_tax_template == 0 ;",
+   "options": "Sales Taxes and Charges Template"
+  },
+  {
+   "fieldname": "delegator_name",
+   "fieldtype": "Data",
+   "label": "Del Name"
+  },
+  {
+   "fieldname": "delegator_phone",
+   "fieldtype": "Data",
+   "label": "Del Phone"
+  },
+  {
+   "fieldname": "delegator_email",
    "fieldtype": "Data",
    "label": "Del Email"
   }
@@ -244,7 +253,7 @@
    "link_fieldname": "agent"
   }
  ],
- "modified": "2024-01-17 15:19:21.831547",
+ "modified": "2024-01-17 15:35:01.172561",
  "modified_by": "Administrator",
  "module": "Regina",
  "name": "Agent",
@@ -264,5 +273,8 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
 }

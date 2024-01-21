@@ -13,7 +13,9 @@
   "check_out_hour",
   "initial_data_section_section",
   "dont_validate_room_in_contract",
-  "init_data"
+  "init_data",
+  "agent_settings_section",
+  "agent_default_tax_template"
  ],
  "fields": [
   {
@@ -59,12 +61,23 @@
    "fieldname": "check_out_hour",
    "fieldtype": "Time",
    "label": "Check Out Hour"
+  },
+  {
+   "fieldname": "agent_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Agent Settings"
+  },
+  {
+   "fieldname": "agent_default_tax_template",
+   "fieldtype": "Link",
+   "label": "Agent Default Tax Template",
+   "options": "Sales Taxes and Charges Template"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-01-16 12:00:43.285931",
+ "modified": "2024-01-17 15:26:21.112496",
  "modified_by": "Administrator",
  "module": "Regina",
  "name": "Management Settings",
