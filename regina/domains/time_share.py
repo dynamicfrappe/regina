@@ -5,6 +5,17 @@ from frappe import _
 
 data = {
     'custom_fields':{ 
+        "payment Entry":[
+            {
+                
+            "label"        :_("Payment Paper"),
+            "fieldname"    : "payment_paper",
+            "fieldtype"    : "Link",
+            "options"      : "Payment Paper" ,
+            "insert_after":"bank_account_no", 
+            "read_only" : 1 
+            }
+        ],
         "Contract" :[{
             "label"        :_("Contract Type"),
             "insert_after" : "status" ,
@@ -177,6 +188,13 @@ data = {
                 "fieldname"    :"resident_Permission", 
                 "insert_after" :"passport_no", 
                 "fieldtype"    : "Data",
+                "read_only"    : 0
+            } ,
+            {    
+                "label"        :_("Last Payment Date"),
+                "fieldname"    :"last_payment_date", 
+                "insert_after" :"resident_Permission", 
+                "fieldtype"    : "Date",
                 "read_only"    : 0
             } ,
           ]           

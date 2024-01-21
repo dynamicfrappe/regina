@@ -84,6 +84,7 @@ class Contract(Document):
 		self.update_fulfilment_status()
 		self.validate_serial_number()
 		self.validate_week_with_item()
+		
 	def validate_serial_number(self):
 		if self.contract_serial_number :
 			agent , status , contract = frappe.db.get_value("Contract Serial Number" ,self.contract_serial_number ,

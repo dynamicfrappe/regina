@@ -1,0 +1,158 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:Payment Papper-{contract}-{#####}",
+ "creation": "2024-01-21 13:55:52.101012",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "contract",
+  "agent",
+  "column_break_edx6e",
+  "due_date",
+  "payment_date",
+  "status",
+  "section_break_kummz",
+  "total_amount",
+  "column_break_zavuq",
+  "paid_amount",
+  "outstanding_amount",
+  "section_break_knscp",
+  "deliverd_to_collector_date",
+  "collector",
+  "column_break_epu5f",
+  "location_status",
+  "company"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "contract",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Contract",
+   "options": "Contract"
+  },
+  {
+   "fieldname": "agent",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Agent",
+   "options": "Agent"
+  },
+  {
+   "fieldname": "paid_amount",
+   "fieldtype": "Currency",
+   "label": "Paid Amount",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "outstanding_amount",
+   "fieldtype": "Currency",
+   "label": "Outstanding Amount",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_edx6e",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Due Date"
+  },
+  {
+   "fieldname": "payment_date",
+   "fieldtype": "Date",
+   "label": "Payment Date"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nPending\nCompleted\nCancelled\nPartial Paid\nReturned"
+  },
+  {
+   "fieldname": "section_break_knscp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "collector",
+   "fieldtype": "Link",
+   "label": "Collector",
+   "options": "User"
+  },
+  {
+   "fieldname": "deliverd_to_collector_date",
+   "fieldtype": "Date",
+   "label": "Deliverd To Collector Date"
+  },
+  {
+   "fieldname": "location_status",
+   "fieldtype": "Select",
+   "label": "Location Status",
+   "options": "\nOn Site\nWith Collector\nWith Agent"
+  },
+  {
+   "fieldname": "section_break_kummz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "total Amount"
+  },
+  {
+   "fieldname": "column_break_zavuq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_epu5f",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "remember_last_selected_value": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-21 16:46:36.199033",
+ "modified_by": "Administrator",
+ "module": "Collections Management",
+ "name": "Payment Paper",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

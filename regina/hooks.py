@@ -114,13 +114,12 @@ override_doctype_class = {
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	"Payment Entry": {
+		"on_submit": "regina.controllers.payment_entry.submit_payment_entry_regina",
+		"on_cancel": "regina.controllers.payment_entry.cancel_payment_entry_regina",
+	}
+}
 
 # Scheduled Tasks
 # ---------------
