@@ -156,7 +156,7 @@ data = {
                 "label"        :_("National ID"),
                 "fieldname" :"national_id", 
                 "insert_after" :"age", 
-                "fieldtype"    : "Int",
+                "fieldtype"    : "Data",
                 "read_only"    : 0,
                 "depends_on"    :"eval:doc.is_egyptian",
                 "mandatory_depends_on"    :"eval:doc.is_egyptian",
@@ -195,6 +195,13 @@ data = {
                 "fieldname"    :"last_payment_date", 
                 "insert_after" :"resident_Permission", 
                 "fieldtype"    : "Date",
+                "read_only"    : 0
+            } ,
+            {    
+                "label"        :_("Customer Wallet"),
+                "fieldname"    :"customer_wallet", 
+                "insert_after" :"last_payment_date", 
+                "fieldtype"    : "Data",
                 "read_only"    : 0
             } ,
           ]           

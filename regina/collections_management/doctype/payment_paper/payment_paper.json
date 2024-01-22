@@ -8,6 +8,7 @@
  "engine": "InnoDB",
  "field_order": [
   "customer",
+  "customer_wallet",
   "contract",
   "agent",
   "column_break_edx6e",
@@ -130,11 +131,21 @@
    "label": "Company",
    "options": "Company",
    "remember_last_selected_value": 1
+  },
+  {
+   "fetch_from": "customer.customer_wallet",
+   "fieldname": "customer_wallet",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer Wallet",
+   "no_copy": 1,
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-21 16:46:36.199033",
+ "modified": "2024-01-22 15:54:06.912778",
  "modified_by": "Administrator",
  "module": "Collections Management",
  "name": "Payment Paper",
