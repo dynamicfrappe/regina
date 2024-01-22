@@ -47,6 +47,31 @@ frappe.ui.form.on('Contracts Management', {
 					
 				}}
 		})
+	},
+	get_total_cash_row:function(frm,cdt,cdn){
+		let row = locals[cdt][cdn]
+		if(row.contract_serial_number && frm.doc.document_method == 'Receive'){
+			frappe.call({
+				method:"frappe.client.get_value",
+				args: {
+					doctype: 'Agent Price List',
+					fieldname:'total_payment_amount',
+					filters: {
+						parent: frm.doc.agent,
+						capacity: row.room_type,
+						company_name: row.item_group,
+					},
+					parent:"Agent"
+				  },
+				  callback: function(res){
+					if(!res.message.total_payment_amount){
+						frappe.throw(__("Not Exist Cost For Agent With Same Item Group And Room Type"))
+					}
+					row.total_cash =  res.message.total_payment_amount ? res.message.total_payment_amount > 0 : 0
+					frm.refresh_field("items")
+				  },
+			})
+		}
 	}
 })
 
@@ -93,10 +118,16 @@ frappe.ui.form.on("Contract Management Items" ,{
 			var tpp = frappe.meta.get_docfield("Contract Management Items","total_payment_papers", frm.doc.name)
 			tpp.read_only = 0;
 			frm.refresh_field("items")
+
 		}
 		
 		
-	} 
+	} ,
+	contract_serial_number:function(frm  ,cdt,cdn){
+		frm.events.get_total_cash_row(frm, cdt, cdn)
+
+	}
+
 }
 
 )

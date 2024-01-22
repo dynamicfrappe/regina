@@ -38,3 +38,14 @@ def make_payment_entry(dn):
 	
 	# print(f'\n\n\n==>\n\n\n=={pe.name}')
 	return pe
+
+
+@frappe.whitelist()
+def get_row_tax_regina_agent():
+	mange_settings = frappe.get_single('Management Settings')
+	tax_role = mange_settings.get('agent_default_tax_template')
+	sql = f"""
+	SELECT rate from `tabSales Taxes and Charges` WHERE parent='{tax_role}' 
+	"""
+	rate = frappe.db.sql(sql,as_dict=1)[0].rate
+	return rate
