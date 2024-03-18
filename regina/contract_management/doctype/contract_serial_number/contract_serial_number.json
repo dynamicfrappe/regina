@@ -53,8 +53,7 @@
    "fieldtype": "Link",
    "in_standard_filter": 1,
    "label": "Agent",
-   "options": "Agent",
-   "read_only": 1
+   "options": "Agent"
   },
   {
    "fieldname": "main_info_section",
@@ -101,7 +100,8 @@
   {
    "fieldname": "send_date",
    "fieldtype": "Date",
-   "label": "Send Date"
+   "label": "Send Date",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_12",
@@ -110,7 +110,8 @@
   {
    "fieldname": "recieve_date",
    "fieldtype": "Data",
-   "label": "Recieve Date"
+   "label": "Recieve Date",
+   "read_only": 1
   },
   {
    "depends_on": "eval:doc.rejected==1;",
@@ -154,7 +155,7 @@
   {
    "fieldname": "item_group",
    "fieldtype": "Link",
-   "label": "Item Group",
+   "label": "Company Name",
    "options": "Item Group"
   },
   {
@@ -199,7 +200,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-16 17:38:48.045178",
+ "modified": "2024-03-13 14:50:47.535688",
  "modified_by": "Administrator",
  "module": "Contract Management",
  "name": "Contract Serial Number",

@@ -8,6 +8,39 @@ from frappe import _
 from frappe.model.document import Document
 
 class ContractsManagement(Document):
+
+	def on_cancel(self):
+		self.valide_befor_cancel()
+		self.change_status()
+
+		
+	def valide_befor_cancel(self):
+		for item in self.items:
+			temp = frappe.get_doc("Contract Serial Number" , item.contract_serial_number)
+
+			if self.document_method == "Receive" and temp.status == "Completed":
+				frappe.throw("This Serial number {} has status completed".format(temp.name))
+				return False
+		
+			if self.document_method == "Send" and temp.status == "With Agent":
+				frappe.throw("This Serial number {} has status With Agent".format(temp.name))
+				return False
+
+
+
+	def change_status(self):
+		for item in self.items:
+			if self.document_method == "Receive":
+				temp = frappe.get_doc("Contract Serial Number" , item.contract_serial_number)
+				if temp.status == "On Progress":
+					temp.status = "With Agent"
+					temp.recieve_date = None
+					temp.save()
+
+
+
+
+
 	"""
 	On Submit this document 
 	   change serial number status and set agent --
@@ -101,3 +134,38 @@ class ContractsManagement(Document):
 					frappe.msgprint(_(f""" in Contract {item.contract_serial_number}You have difference Value Between Collected Mony And Contract Total \n
 		          Your Total Collection is {item.total_amount} and your collection mony and paper 
 					 is {float(item.total_cash or 0 ) + float(item.total_payment_papers or 0)}"""))
+					
+
+
+
+# def on_change(self):
+# 	if self.docstatus == 2:
+# 		items = frappe.get_all(
+#          		"Contract Management Items",
+#          		filters={"parent": self.name},
+#          		fields=["contract_serial_number", "total_cash" , "contract_status" , "item_group" , "contract_type" , "receive_date" , "room_type" , "agent_contract_price" , "document_method"]
+#       		)
+# 		if self.document_method == "Receive":
+# 			for item in items:
+# 				temp = frappe.get_doc("Contract Serial Number" , item.contract_serial_number)
+# 				if temp.status == "On Progress":
+# 					temp.status = "With Agent"
+# 					temp.recieve_date = None
+# 					temp.save()
+# 				elif temp.status == "Completed":
+# 						frappe.throw("")
+# 						return False
+# 		elif self.document_method == "Send":
+# 			for item in items:
+# 				temp = frappe.get_doc("Contract Serial Number" , item.contract_serial_number)
+# 				if temp.status != "With Agent":
+
+
+
+
+			
+
+
+			
+	
+
