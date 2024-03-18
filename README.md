@@ -88,7 +88,13 @@ in Management Settings Add Filed Default Tax Template -- link selling tax templa
 Agent fees Tax read only 
 Agent fee discount Tax read only  
 calculate the tow fees depend on Agent fees 
-Advance payment + Total Reserved Payments = Total Payment Amount validation /auto caculate 
+Advance payment + Total Reserved Payments = Total Payment Amount validation /auto calculate 
+ on agent save set annual services data 
+
+ ## Annual Services Template
+
+ create template with required data for services fees 
+
 
 
 

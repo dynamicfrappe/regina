@@ -1,0 +1,65 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-01-29 11:15:50.737622",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "attached",
+  "location",
+  "collector",
+  "send_yo_collector_date",
+  "send_to_customer_date",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "attached",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Attached"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Location"
+  },
+  {
+   "fieldname": "collector",
+   "fieldtype": "Data",
+   "label": "Collector"
+  },
+  {
+   "fieldname": "send_yo_collector_date",
+   "fieldtype": "Date",
+   "label": "Send yo collector Date"
+  },
+  {
+   "fieldname": "send_to_customer_date",
+   "fieldtype": "Date",
+   "label": "Send To customer Date"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Data",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-01-29 11:15:50.737622",
+ "modified_by": "Administrator",
+ "module": "Regina",
+ "name": "Contract Copys",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

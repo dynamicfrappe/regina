@@ -43,7 +43,9 @@
   "price_list_section",
   "apply_default_tax_template",
   "tax_template",
-  "agent_price_list"
+  "agent_price_list",
+  "serivces_section",
+  "annual_services"
  ],
  "fields": [
   {
@@ -244,6 +246,17 @@
    "fieldname": "delegator_email",
    "fieldtype": "Data",
    "label": "Del Email"
+  },
+  {
+   "fieldname": "serivces_section",
+   "fieldtype": "Section Break",
+   "label": "Serivces"
+  },
+  {
+   "fieldname": "annual_services",
+   "fieldtype": "Table",
+   "label": "Annual Services",
+   "options": "Annual Services"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -253,7 +266,7 @@
    "link_fieldname": "agent"
   }
  ],
- "modified": "2024-01-17 15:35:01.172561",
+ "modified": "2024-01-28 13:10:23.548342",
  "modified_by": "Administrator",
  "module": "Regina",
  "name": "Agent",

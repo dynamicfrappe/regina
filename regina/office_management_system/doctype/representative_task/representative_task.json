@@ -14,6 +14,7 @@
   "connection_channels_section",
   "channel",
   "section_break_3",
+  "contract",
   "agent_type",
   "customer",
   "customer_name",
@@ -120,11 +121,18 @@
    "fieldtype": "Datetime",
    "label": "Start On",
    "mandatory_depends_on": "eval:doc.status == \"Active\""
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "contract",
+   "fieldtype": "Link",
+   "label": "Contract",
+   "options": "Contract"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-14 19:51:46.373933",
+ "modified": "2024-01-29 14:45:46.456445",
  "modified_by": "Administrator",
  "module": "Office Management System",
  "name": "Representative Task",

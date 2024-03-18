@@ -154,7 +154,7 @@
   {
    "fieldname": "item_group",
    "fieldtype": "Link",
-   "label": "Item Group",
+   "label": "Company Name",
    "options": "Item Group"
   },
   {
@@ -199,7 +199,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-16 17:38:48.045178",
+ "modified": "2024-01-29 12:07:28.374256",
  "modified_by": "Administrator",
  "module": "Contract Management",
  "name": "Contract Serial Number",

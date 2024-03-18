@@ -58,7 +58,8 @@ class ContractsManagement(Document):
 			if contract.status == "On Site" :
 				frappe.throw(_(f"Contract {serial.contract_serial_number} is on Site !"))
 
-
+	def get_agent_contract_amount(self) :
+		pass
 
 	def set_serial_number_values(self) :
 		if self.document_method == "Send" :
@@ -71,6 +72,7 @@ class ContractsManagement(Document):
 						
 									)
 		if self.document_method == "Receive" :	
+			agent = frappe.get_doc("Agent" , self.agent )
 			for serial in self.items  :
 				frappe.db.set_value('Contract Serial Number', serial.contract_serial_number, {
 						'agent': self.agent , 
@@ -82,6 +84,12 @@ class ContractsManagement(Document):
 						"grand_total" : serial.total_amount
 						}
 							)
+				for item in agent.agent_price_list :
+					for i in self.items :
+
+						if item.capacity == i.room_type  and item.company_name == i.item_group:
+							serial.agent_contract_price = item.total_payment_amount 
+
 
 
 	#calculate collection and validate amounts 
@@ -101,3 +109,13 @@ class ContractsManagement(Document):
 					frappe.msgprint(_(f""" in Contract {item.contract_serial_number}You have difference Value Between Collected Mony And Contract Total \n
 		          Your Total Collection is {item.total_amount} and your collection mony and paper 
 					 is {float(item.total_cash or 0 ) + float(item.total_payment_papers or 0)}"""))
+
+
+	@frappe.whitelist()				
+	def create_payment_paper(self) :
+		pass			
+
+
+	@frappe.whitelist()
+	def get_agent_amount(agent , room_type ,group) :
+		pass

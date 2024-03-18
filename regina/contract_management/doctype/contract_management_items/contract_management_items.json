@@ -19,7 +19,8 @@
   "total_payment_papers_count",
   "total_amount",
   "item_group",
-  "room_type"
+  "room_type",
+  "agent_contract_price"
  ],
  "fields": [
   {
@@ -113,12 +114,17 @@
    "label": "Room Type",
    "options": "Room Type",
    "read_only": 1
+  },
+  {
+   "fieldname": "agent_contract_price",
+   "fieldtype": "Currency",
+   "label": "Agent Contract Price"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-01-22 16:21:20.330941",
+ "modified": "2024-01-29 11:50:16.326861",
  "modified_by": "Administrator",
  "module": "Contract Management",
  "name": "Contract Management Items",

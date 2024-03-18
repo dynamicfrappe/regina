@@ -33,7 +33,7 @@
    "type": "Link"
   }
  ],
- "modified": "2024-01-14 20:28:10.794762",
+ "modified": "2024-01-29 11:28:15.904129",
  "modified_by": "Administrator",
  "module": "Office Management System",
  "name": "Office Management System",
@@ -63,6 +63,18 @@
    "doc_view": "List",
    "label": "Archive",
    "link_to": "Archived Data",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Unit Reservation",
+   "link_to": "Unit Reservation",
+   "type": "DocType"
+  },
+  {
+   "doc_view": "List",
+   "label": "Unit Reservation Bin",
+   "link_to": "Unit Reservation Bin",
    "type": "DocType"
   }
  ],

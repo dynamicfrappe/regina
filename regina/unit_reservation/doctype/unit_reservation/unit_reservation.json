@@ -8,14 +8,19 @@
  "engine": "InnoDB",
  "field_order": [
   "customer",
+  "contract",
+  "column_break_2",
+  "posting_date",
+  "unit",
+  "section_break_4",
   "year",
+  "column_break_8",
   "from_date",
   "to_date",
-  "contract",
   "column_break_0nbiy",
   "brand",
   "item_group",
-  "unit",
+  "column_break_14",
   "room_type"
  ],
  "fields": [
@@ -25,7 +30,8 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Customer",
-   "options": "Customer"
+   "options": "Customer",
+   "reqd": 1
   },
   {
    "fieldname": "year",
@@ -51,7 +57,7 @@
   },
   {
    "fieldname": "column_break_0nbiy",
-   "fieldtype": "Column Break"
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "brand",
@@ -78,11 +84,32 @@
    "fieldtype": "Link",
    "label": "Room Type",
    "options": "Room Type"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_14",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-16 12:47:51.915381",
+ "modified": "2024-01-29 11:25:37.763513",
  "modified_by": "Administrator",
  "module": "Unit Reservation",
  "name": "Unit Reservation",
