@@ -1,0 +1,31 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-16 13:54:05.373165",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "unit_week"
+ ],
+ "fields": [
+  {
+   "fieldname": "unit_week",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Unit week",
+   "options": "Unit week"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-04-16 13:56:03.619060",
+ "modified_by": "Administrator",
+ "module": "Unit Reservation",
+ "name": "Unit reservation template",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
