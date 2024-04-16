@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_guest_to_view": 1,
  "allow_rename": 1,
  "autoname": "format:URSV-{customer}-{unit}-{#####}",
  "creation": "2024-01-16 12:01:12.663314",
@@ -50,7 +51,9 @@
   "last_reservation_section",
   "last_reservation_date",
   "column_break_39",
-  "last_reservation_uint"
+  "last_reservation_uint",
+  "published",
+  "route"
  ],
  "fields": [
   {
@@ -305,12 +308,25 @@
    "fieldname": "agent",
    "fieldtype": "Data",
    "label": "Agent"
+  },
+  {
+   "default": "0",
+   "fieldname": "published",
+   "fieldtype": "Check",
+   "label": " Published"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route"
   }
  ],
+ "has_web_view": 1,
  "index_web_pages_for_search": 1,
+ "is_published_field": "published",
  "is_submittable": 1,
  "links": [],
- "modified": "2024-03-25 13:47:02.967947",
+ "modified": "2024-04-16 11:13:44.566282",
  "modified_by": "Administrator",
  "module": "Unit Reservation",
  "name": "Unit Reservation",
@@ -329,6 +345,7 @@
    "write": 1
   }
  ],
+ "route": "reservation-tools",
  "sort_field": "modified",
  "sort_order": "DESC"
 }

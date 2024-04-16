@@ -3,14 +3,14 @@
 
 import frappe
 from datetime import datetime
-from frappe.model.document import Document
+from frappe.website.website_generator import WebsiteGenerator
 from frappe import _
 
 from frappe.utils import date_diff , today ,getdate
 
 from dateutil.relativedelta import relativedelta
 
-class UnitReservation(Document):
+class UnitReservation(WebsiteGenerator):
 	
 	
 	def validate(self):
