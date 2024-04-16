@@ -1,0 +1,55 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-15 14:55:23.808811",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "start_day",
+  "desc1",
+  "end_day",
+  "desc2"
+ ],
+ "fields": [
+  {
+   "fieldname": "start_day",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Start day",
+   "read_only": 1
+  },
+  {
+   "fieldname": "desc1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Desc1",
+   "read_only": 1
+  },
+  {
+   "fieldname": "end_day",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "End day",
+   "read_only": 1
+  },
+  {
+   "fieldname": "desc2",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Desc2",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-04-15 14:56:50.087657",
+ "modified_by": "Administrator",
+ "module": "Unit Reservation",
+ "name": "Unit week tool",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

@@ -1,0 +1,82 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:year",
+ "creation": "2024-04-15 14:52:27.494687",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "year",
+  "from_date",
+  "to_date",
+  "start_day",
+  "end_day",
+  "unit_week_tool"
+ ],
+ "fields": [
+  {
+   "fieldname": "year",
+   "fieldtype": "Link",
+   "label": "Year",
+   "options": "Year",
+   "unique": 1
+  },
+  {
+   "fetch_from": "year.start_day",
+   "fieldname": "from_date",
+   "fieldtype": "Data",
+   "label": "From Date",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "year.end_day",
+   "fieldname": "to_date",
+   "fieldtype": "Data",
+   "label": "To Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "start_day",
+   "fieldtype": "Select",
+   "label": "Start Day",
+   "options": "\nSunday\nMonday\nTuesday\nWednesday\nThursday"
+  },
+  {
+   "fieldname": "end_day",
+   "fieldtype": "Select",
+   "label": "End Day",
+   "options": "\nSunday\nMonday\nTuesday\nWednesday\nThursday"
+  },
+  {
+   "fieldname": "unit_week_tool",
+   "fieldtype": "Table",
+   "label": "Unit week tool",
+   "options": "Unit week tool",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-04-15 15:10:10.299580",
+ "modified_by": "Administrator",
+ "module": "Unit Reservation",
+ "name": "Unit week",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

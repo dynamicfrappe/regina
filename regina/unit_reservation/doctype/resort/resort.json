@@ -7,7 +7,8 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "location"
+  "location",
+  "unit_reservation_template"
  ],
  "fields": [
   {
@@ -15,11 +16,17 @@
    "fieldtype": "Data",
    "label": "Location",
    "unique": 1
+  },
+  {
+   "fieldname": "unit_reservation_template",
+   "fieldtype": "Table",
+   "label": "Unit reservation template",
+   "options": "Unit reservation template"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-10 13:36:45.004689",
+ "modified": "2024-04-16 13:55:28.930328",
  "modified_by": "Administrator",
  "module": "Unit Reservation",
  "name": "Resort",
