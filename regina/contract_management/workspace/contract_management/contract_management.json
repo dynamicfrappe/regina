@@ -12,8 +12,27 @@
  "is_default": 0,
  "is_standard": 1,
  "label": "Contract Management",
- "links": [],
- "modified": "2024-01-14 18:17:41.903867",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Counsel",
+   "link_to": "Counsel",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Contract Cancellation",
+   "link_to": "Contract Cancellation",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2024-03-18 16:30:44.515871",
  "modified_by": "Administrator",
  "module": "Contract Management",
  "name": "Contract Management",

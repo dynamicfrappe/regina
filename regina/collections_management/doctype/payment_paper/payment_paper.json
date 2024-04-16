@@ -8,6 +8,7 @@
  "engine": "InnoDB",
  "field_order": [
   "serial_number",
+  "number",
   "customer",
   "customer_wallet",
   "contract",
@@ -30,6 +31,7 @@
  ],
  "fields": [
   {
+   "columns": 1,
    "fieldname": "customer",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -48,7 +50,6 @@
   {
    "fieldname": "agent",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Agent",
    "options": "Agent"
@@ -79,12 +80,16 @@
   {
    "fieldname": "payment_date",
    "fieldtype": "Date",
+   "in_list_view": 1,
    "label": "Payment Date"
   },
   {
+   "columns": 1,
    "default": "Pending",
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Status",
    "options": "\nPending\nCompleted\nCancelled\nPartial Paid\nReturned"
   },
@@ -95,6 +100,7 @@
   {
    "fieldname": "collector",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Collector",
    "options": "User"
   },
@@ -106,6 +112,7 @@
   {
    "fieldname": "location_status",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Location Status",
    "options": "\nOn Site\nWith Collector\nWith Agent"
   },
@@ -134,7 +141,6 @@
    "remember_last_selected_value": 1
   },
   {
-   "fetch_from": "customer.customer_wallet",
    "fieldname": "customer_wallet",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -146,13 +152,22 @@
   {
    "fieldname": "serial_number",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Serial Number",
    "options": "Contract Serial Number"
+  },
+  {
+   "columns": 1,
+   "fieldname": "number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-28 15:32:55.614810",
+ "modified": "2024-03-24 16:56:07.520533",
  "modified_by": "Administrator",
  "module": "Collections Management",
  "name": "Payment Paper",
@@ -172,5 +187,8 @@
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
 }

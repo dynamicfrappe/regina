@@ -9,7 +9,9 @@
  "field_order": [
   "name1",
   "terms_section",
-  "contract_terms"
+  "is_time_share",
+  "contract_terms",
+  "credit_years"
  ],
  "fields": [
   {
@@ -33,6 +35,18 @@
    "fieldtype": "Text Editor",
    "label": "Contract Terms",
    "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_time_share",
+   "fieldtype": "Check",
+   "label": "Is Time Share"
+  },
+  {
+   "default": "3",
+   "fieldname": "credit_years",
+   "fieldtype": "Int",
+   "label": "Credit Years"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -46,7 +60,7 @@
    "link_fieldname": "contract_type"
   }
  ],
- "modified": "2023-12-07 16:17:12.297965",
+ "modified": "2024-03-25 04:06:23.103687",
  "modified_by": "Administrator",
  "module": "Contract Management",
  "name": "Contract Type",

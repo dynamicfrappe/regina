@@ -8,20 +8,49 @@
  "engine": "InnoDB",
  "field_order": [
   "customer",
+  "national_id",
+  "mobil_number",
   "contract",
+  "agent",
+  "contract_number",
+  "status",
   "column_break_2",
   "posting_date",
-  "unit",
+  "contract_type",
+  "contract_details_section",
+  "available_days",
+  "contract_company",
+  "contract_brand",
+  "col_breack",
+  "contract_room_type",
   "section_break_4",
   "year",
+  "days",
   "column_break_8",
   "from_date",
   "to_date",
   "column_break_0nbiy",
   "brand",
   "item_group",
+  "room_view",
   "column_break_14",
-  "room_type"
+  "room_type",
+  "unit",
+  "amended_from",
+  "payment_paper_scetion_section",
+  "total_payment_paper",
+  "total_payed",
+  "column_break_29",
+  "total_unpaid",
+  "payment_paper_details_section",
+  "reservation_payment_paper",
+  "contract_services_section",
+  "unit_reservation_services",
+  "unit_reservation_added_services",
+  "last_reservation_section",
+  "last_reservation_date",
+  "column_break_39",
+  "last_reservation_uint"
  ],
  "fields": [
   {
@@ -105,11 +134,183 @@
   {
    "fieldname": "column_break_14",
    "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "contract_details_section",
+   "fieldtype": "Section Break",
+   "label": "Contract Details"
+  },
+  {
+   "fetch_from": "contract.item_group",
+   "fieldname": "contract_company",
+   "fieldtype": "Link",
+   "label": "Contract Companyr",
+   "options": "Item Group"
+  },
+  {
+   "fetch_from": "contract.brand",
+   "fieldname": "contract_brand",
+   "fieldtype": "Link",
+   "label": "Contract Brand",
+   "options": "Brand"
+  },
+  {
+   "fieldname": "col_breack",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "contract.room_type",
+   "fieldname": "contract_room_type",
+   "fieldtype": "Link",
+   "label": "Number Of Pax",
+   "options": "Room Type"
+  },
+  {
+   "fieldname": "available_days",
+   "fieldtype": "Data",
+   "label": "Available Days"
+  },
+  {
+   "fieldname": "days",
+   "fieldtype": "Data",
+   "label": "Days",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Unit Reservation",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "room_view",
+   "fieldtype": "Link",
+   "label": "Room View",
+   "options": "Room View"
+  },
+  {
+   "fetch_from": "contract.contract_type",
+   "fieldname": "contract_type",
+   "fieldtype": "Link",
+   "label": "Contract Type",
+   "options": "Contract Type"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "payment_paper_scetion_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Paper Scetion"
+  },
+  {
+   "fieldname": "total_payment_paper",
+   "fieldtype": "Data",
+   "label": "Total Payment Paper"
+  },
+  {
+   "fieldname": "total_payed",
+   "fieldtype": "Data",
+   "label": "Total Payed"
+  },
+  {
+   "fieldname": "column_break_29",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_unpaid",
+   "fieldtype": "Data",
+   "label": "Total Unpaid"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "payment_paper_details_section",
+   "fieldtype": "Section Break",
+   "label": "Payment Paper Details"
+  },
+  {
+   "fieldname": "reservation_payment_paper",
+   "fieldtype": "Table",
+   "label": "Reservation Payment Paper",
+   "options": "Reservation Payment Paper"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending\nPayment paper Unpaid\nPayment Request\nPayed\nValid\nCompleted"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "contract_services_section",
+   "fieldtype": "Section Break",
+   "label": "Contract Services"
+  },
+  {
+   "fieldname": "unit_reservation_services",
+   "fieldtype": "Table",
+   "label": "Unit Reservation Services",
+   "options": "Unit Reservation Services"
+  },
+  {
+   "fieldname": "unit_reservation_added_services",
+   "fieldtype": "Table",
+   "label": "Unit Reservation Added Services",
+   "options": "Unit Reservation Added Services"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "last_reservation_section",
+   "fieldtype": "Section Break",
+   "label": "Last Reservation"
+  },
+  {
+   "fieldname": "last_reservation_date",
+   "fieldtype": "Date",
+   "label": "Last Reservation Date"
+  },
+  {
+   "fieldname": "column_break_39",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_reservation_uint",
+   "fieldtype": "Link",
+   "label": "Last reservation Uint",
+   "options": "Item"
+  },
+  {
+   "fetch_from": "contarct.contract_serial_number",
+   "fieldname": "contract_number",
+   "fieldtype": "Data",
+   "label": "Contract Number"
+  },
+  {
+   "fetch_from": "customer.national_bd",
+   "fieldname": "national_id",
+   "fieldtype": "Data",
+   "in_preview": 1,
+   "label": "National ID"
+  },
+  {
+   "fetch_from": "customer.mobile_no",
+   "fieldname": "mobil_number",
+   "fieldtype": "Data",
+   "label": "Mobil Number"
+  },
+  {
+   "fetch_from": "contract.agent",
+   "fieldname": "agent",
+   "fieldtype": "Data",
+   "label": "Agent"
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-01-29 11:25:37.763513",
+ "modified": "2024-03-25 13:47:02.967947",
  "modified_by": "Administrator",
  "module": "Unit Reservation",
  "name": "Unit Reservation",

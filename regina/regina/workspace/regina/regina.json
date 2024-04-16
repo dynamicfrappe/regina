@@ -26,17 +26,8 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Units",
-   "link_to": "Item",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Management Settings",
-   "link_to": "Management Settings",
+   "label": "Location",
+   "link_to": "Resort",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -76,9 +67,36 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Units",
+   "link_to": "Item",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Management Settings",
+   "link_to": "Management Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Annual Services Template",
+   "link_to": "Annual Services Template",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2024-01-14 15:33:19.781713",
+ "modified": "2024-03-19 16:33:57.808987",
  "modified_by": "Administrator",
  "module": "Regina",
  "name": "Regina",

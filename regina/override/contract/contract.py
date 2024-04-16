@@ -12,9 +12,10 @@ class Contract(Document):
 		if not self.week and self.unit :
 			frappe.throw(_(f"Please Set week for unit {self.unit}"))
 		reserved_weeks = get_reserved_weeks(self.unit)
-		for item in self.items :
-			if item.week in reserved_weeks[0] :
-				frappe.throw(_(f""" Unit number {self.unit} Week {item.week} is Reserved for other Contract"""))
+		if len(reserved_weeks) > 0  :
+			for item in self.items :
+				if item.week in reserved_weeks[0] :
+					frappe.throw(_(f""" Unit number {self.unit} Week {item.week} is Reserved for other Contract"""))
 	def create_week_ben_ledger(self) :
 		# create ledger 
 		ledger = frappe.new_doc("Week Ben Ledger") 
@@ -30,7 +31,7 @@ class Contract(Document):
 			# We need to update this function  
 			item_ben = frappe.get_doc("Week Ben List", {"unit": self.unit })
 			item_ben.reserved_weeks = int(item_ben.reserved_weeks) +1
-			item_ben.available_weeks = item_ben.available_weeks -1
+			item_ben.available_weeks = int(item_ben.available_weeks) -1
 			item_ben.save()
 		if not frappe.db.exists("Week Ben List", {"unit": self.unit }):
 			#create  

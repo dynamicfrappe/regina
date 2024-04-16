@@ -1,0 +1,137 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-03-24 13:29:22.631051",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "annual_services_type",
+  "contract",
+  "year",
+  "serial_number",
+  "customer",
+  "partner",
+  "payment_year",
+  "year_start_date",
+  "year_end_date",
+  "required_amount",
+  "payed_amount",
+  "is_payed",
+  "outstanding_amount",
+  "discount_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "annual_services_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Annual Services Type",
+   "options": "Annual Services Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "contract",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Contract",
+   "options": "Contract",
+   "reqd": 1
+  },
+  {
+   "fieldname": "serial_number",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Serial Number",
+   "options": "Contract Serial Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "partner",
+   "fieldtype": "Link",
+   "label": "Partner",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "payment_year",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Payment Year",
+   "options": "Fiscal Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "year_start_date",
+   "fieldtype": "Date",
+   "label": "Year Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "year_end_date",
+   "fieldtype": "Date",
+   "label": "Year End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "required_amount",
+   "fieldtype": "Currency",
+   "label": "Required Amount"
+  },
+  {
+   "fieldname": "payed_amount",
+   "fieldtype": "Currency",
+   "label": "Payed Amount"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_payed",
+   "fieldtype": "Check",
+   "label": "Is Payed"
+  },
+  {
+   "fieldname": "outstanding_amount",
+   "fieldtype": "Currency",
+   "label": "Outstanding Amount"
+  },
+  {
+   "fieldname": "discount_amount",
+   "fieldtype": "Currency",
+   "label": "Discount Amount"
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Data",
+   "label": "Year",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-03-25 10:58:04.559449",
+ "modified_by": "Administrator",
+ "module": "Collections Management",
+ "name": "Annual Services Payments",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

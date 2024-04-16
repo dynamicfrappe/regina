@@ -3,13 +3,14 @@
 
 frappe.ui.form.on('Payment Paper', {
 	SecurityPolicyViolationEvent:function(frm){
-		frm.add_fetch('customer', 'company', 'company');
+		frm.add_fetch( 'company', 'company');
 
 	},
 	refresh: function(frm) {
 		frm.events.add_custom_btn(frm)
 	},
 	add_custom_btn:function(frm){
+		if (frm.doc.customer) {
 		if(frm.doc.status.includes("Pending","Partial Paid")){
 			frm.add_custom_button("Make Payment",()=>{
 
@@ -38,5 +39,5 @@ frappe.ui.form.on('Payment Paper', {
 				// })
 			},(__("Utilies")))
 		}
-	}
+	}}
 });

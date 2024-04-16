@@ -43,6 +43,7 @@
   "price_list_section",
   "apply_default_tax_template",
   "tax_template",
+  "annual_services_template",
   "agent_price_list",
   "serivces_section",
   "annual_services"
@@ -257,6 +258,12 @@
    "fieldtype": "Table",
    "label": "Annual Services",
    "options": "Annual Services"
+  },
+  {
+   "fieldname": "annual_services_template",
+   "fieldtype": "Link",
+   "label": "Annual Services Template",
+   "options": "Annual Services Template"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -266,7 +273,7 @@
    "link_fieldname": "agent"
   }
  ],
- "modified": "2024-01-28 13:10:23.548342",
+ "modified": "2024-03-19 16:36:48.509676",
  "modified_by": "Administrator",
  "module": "Regina",
  "name": "Agent",

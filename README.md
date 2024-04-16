@@ -49,7 +49,7 @@ Assign to representative  / get Current Available Representative
 
 
 ##  Contract Management  / done
-##  Office Management System 
+##  Office Management System /done
 ##  Collections Management
 ##  Archive System
 ## Unit Reservation
@@ -93,7 +93,7 @@ Advance payment + Total Reserved Payments = Total Payment Amount validation /aut
 
  ## Annual Services Template
 
- create template with required data for services fees 
+  create template with required data for services fees
 
 
 

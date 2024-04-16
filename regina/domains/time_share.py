@@ -178,7 +178,7 @@ data = {
                 "label"        :_("Passport No"),
                 "fieldname"    :"passport_no", 
                 "insert_after" :"issued_date", 
-                "fieldtype"    : "Int",
+                "fieldtype"    : "Data",
                 "read_only"    : 0,
                 "depends_on"    :"eval:doc.is_egyptian==0",
                 "mandatory_depends_on"    :"eval:doc.is_egyptian==0",

@@ -4,6 +4,7 @@
 frappe.ui.form.on('Unit Reservation', {
 	refresh: function(frm) {
 		frm.events.event_add_custom_btns(frm)
+		frm.events.setup_query(frm)
 	},
 
 
@@ -14,5 +15,18 @@ frappe.ui.form.on('Unit Reservation', {
 		frm.add_custom_button('Reservation History',()=>{
 
 		},__("View"))
+	},
+
+	setup_query:function(frm) {
+		frm.set_query('unit', () => {
+			return {
+				 filters: {
+					  item_group: frm.doc.item_group ,
+					  room_type : frm.doc.room_type ,
+					  room_view :frm.doc.room_view
+				 }
+			}
+	  })
 	}
+	
 });
