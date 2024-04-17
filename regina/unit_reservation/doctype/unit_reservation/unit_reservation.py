@@ -15,13 +15,16 @@ class UnitReservation(WebsiteGenerator):
 	
 	def validate(self):
 		self.calculate_days_count()
-		dt_from = datetime.strptime(self.from_date, '%Y-%m-%d')
-		dt_to = datetime.strptime(self.to_date, '%Y-%m-%d')
+		dt_from = datetime.strptime(str(self.from_date), '%Y-%m-%d')
+		dt_to = datetime.strptime(str(self.to_date), '%Y-%m-%d')
 		if str(dt_from.year) != self.year or str(dt_to.year) != self.year:
 			frappe.throw("Year in Date Should Be Same in Year")
 
 		self.calculate_customer_days_credit()
-		self.calculate_payment_paper_details()
+		self.calculate_totals()
+		
+
+		
 	def calculate_days_count(self):
 		df = date_diff( self.to_date ,self.from_date )
 		self.days = df
@@ -100,6 +103,39 @@ class UnitReservation(WebsiteGenerator):
 		self.total_payment_paper = total_paper
 		self.total_payed = total_paid 
 		self.total_unpaid = total_unpaid
+			
+	def calculate_totals(self):
+		total_unpayment_paper = 0
+		total_unpaid_services = 0
+		total_unpaid_other_services = 0
+		total_paid_services = 0
+		total_paid_other_services = 0
+
+		for payment in self.reservation_payment_paper:
+			if payment.status == "Pending" and payment.amount is not None:
+				total_unpayment_paper += float(payment.amount)
+
+		for service in self.unit_reservation_services:
+			if service.amount is not None:
+				total_unpaid_services += float(service.amount)
+			if service.payed_amount is not None:
+				total_paid_services += float(service.payed_amount)
+		for added_service in self.unit_reservation_added_services:
+			if added_service.amount is not None:
+				total_unpaid_other_services += float(added_service.amount)
+			if added_service.payed_amount is not None:
+				total_paid_other_services += float(added_service.payed_amount)
+		total_unpaid_all = total_unpayment_paper + total_unpaid_services + total_unpaid_other_services
+		total_paid_all = total_paid_services + total_paid_other_services
+		self.total_unpayment_paper = total_unpayment_paper
+		self.total_unpaid_services = total_unpaid_services
+		self.total_unpaid_other_services = total_unpaid_other_services
+		self.total_unpaid_all = total_unpaid_all
+		self.total_paid_services = total_paid_services
+		self.total_paid_other_services = total_paid_other_services
+		self.total_paid_all = total_paid_all
+	
+
 
 
 			
