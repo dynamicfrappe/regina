@@ -1,0 +1,120 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-16 15:38:21.787438",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_qx8ut",
+  "from_date",
+  "unit_reservation",
+  "column_break_lvkco",
+  "to_date",
+  "section_break_gapoi",
+  "item_group",
+  "brand",
+  "room_view",
+  "column_break_vkf6g",
+  "room_type",
+  "unit",
+  "marked_items_section",
+  "marked_item_html"
+ ],
+ "fields": [
+  {
+   "fieldname": "marked_items_section",
+   "fieldtype": "Section Break",
+   "label": "Items"
+  },
+  {
+   "fieldname": "marked_item_html",
+   "fieldtype": "HTML",
+   "label": "Marked Item HTML"
+  },
+  {
+   "fieldname": "section_break_qx8ut",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "unit_reservation",
+   "fieldtype": "Link",
+   "label": "Unit Reservation",
+   "options": "Unit Reservation"
+  },
+  {
+   "fieldname": "column_break_lvkco",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_gapoi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "item_group",
+   "fieldtype": "Link",
+   "label": "Item Group",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "brand",
+   "fieldtype": "Link",
+   "label": "Brand",
+   "options": "Brand"
+  },
+  {
+   "fieldname": "room_view",
+   "fieldtype": "Link",
+   "label": "Room View",
+   "options": "Room View"
+  },
+  {
+   "fieldname": "column_break_vkf6g",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "room_type",
+   "fieldtype": "Link",
+   "label": "Room Type",
+   "options": "Room Type"
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Unit",
+   "options": "Item"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-04-21 10:57:43.183339",
+ "modified_by": "Administrator",
+ "module": "Regina",
+ "name": "Unit Reservation Tool",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
