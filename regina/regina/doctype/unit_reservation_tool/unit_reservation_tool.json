@@ -7,10 +7,10 @@
  "engine": "InnoDB",
  "field_order": [
   "section_break_qx8ut",
-  "from",
+  "from_date",
   "unit_reservation",
   "column_break_lvkco",
-  "to",
+  "to_date",
   "section_break_gapoi",
   "item_group",
   "brand",
@@ -43,18 +43,8 @@
    "options": "Unit Reservation"
   },
   {
-   "fieldname": "from",
-   "fieldtype": "Date",
-   "label": "From"
-  },
-  {
    "fieldname": "column_break_lvkco",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "to",
-   "fieldtype": "Date",
-   "label": "To"
   },
   {
    "fieldname": "section_break_gapoi",
@@ -93,12 +83,22 @@
    "fieldtype": "Link",
    "label": "Unit",
    "options": "Item"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-04-16 16:21:47.976904",
+ "modified": "2024-04-21 10:57:43.183339",
  "modified_by": "Administrator",
  "module": "Regina",
  "name": "Unit Reservation Tool",
