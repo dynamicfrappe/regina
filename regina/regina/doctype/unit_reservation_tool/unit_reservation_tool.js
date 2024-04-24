@@ -3,7 +3,7 @@ frappe.ui.form.on('Unit Reservation Tool', {
 		erpnext.unit_reservation_tool.load_items(frm);
 	},
 	refresh: function(frm) {
-		frm.disable_save();
+		// frm.disable_save();
 	},
 	item_group: function(frm) {
 		erpnext.unit_reservation_tool.load_items(frm);

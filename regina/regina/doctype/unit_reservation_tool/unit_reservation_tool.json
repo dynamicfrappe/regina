@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-04-16 15:38:21.787438",
+ "creation": "2024-04-21 11:41:22.395281",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -23,18 +23,13 @@
  ],
  "fields": [
   {
-   "fieldname": "marked_items_section",
-   "fieldtype": "Section Break",
-   "label": "Items"
-  },
-  {
-   "fieldname": "marked_item_html",
-   "fieldtype": "HTML",
-   "label": "Marked Item HTML"
-  },
-  {
    "fieldname": "section_break_qx8ut",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From"
   },
   {
    "fieldname": "unit_reservation",
@@ -45,6 +40,11 @@
   {
    "fieldname": "column_break_lvkco",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To"
   },
   {
    "fieldname": "section_break_gapoi",
@@ -85,20 +85,19 @@
    "options": "Item"
   },
   {
-   "fieldname": "from_date",
-   "fieldtype": "Date",
-   "label": "From"
+   "fieldname": "marked_items_section",
+   "fieldtype": "Section Break",
+   "label": "Items"
   },
   {
-   "fieldname": "to_date",
-   "fieldtype": "Date",
-   "label": "To"
+   "fieldname": "marked_item_html",
+   "fieldtype": "HTML",
+   "label": "Marked Item HTML"
   }
  ],
  "index_web_pages_for_search": 1,
- "issingle": 1,
  "links": [],
- "modified": "2024-04-21 10:57:43.183339",
+ "modified": "2024-04-21 11:41:22.395281",
  "modified_by": "Administrator",
  "module": "Regina",
  "name": "Unit Reservation Tool",
