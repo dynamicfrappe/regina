@@ -54,7 +54,8 @@
    "fieldtype": "Link",
    "in_standard_filter": 1,
    "label": "Agent",
-   "options": "Agent"
+   "options": "Agent",
+   "read_only": 1
   },
   {
    "fieldname": "main_info_section",
@@ -206,7 +207,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-20 14:40:13.267376",
+ "modified": "2024-04-24 11:07:34.456210",
  "modified_by": "Administrator",
  "module": "Contract Management",
  "name": "Contract Serial Number",
