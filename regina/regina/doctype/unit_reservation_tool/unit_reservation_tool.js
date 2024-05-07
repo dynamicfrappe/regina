@@ -35,8 +35,9 @@ erpnext.unit_reservation_tool = {
 				brand : frm.doc.brand , 
 				room_view : frm.doc.room_view , 
 				room_type : frm.doc.room_type, 
-				unit : frm.doc.unit 
-			},
+				unit : frm.doc.unit  , 
+				start_date : frm.doc.from_date , 
+			    end_date	 : frm.doc.to_date		},
 			callback: function(r) {
 				if(r.message.length > 0) {
 					// frm.form_wrapper.empty();
@@ -161,6 +162,7 @@ erpnext.Items_Sellector = Class.extend({
 			$(repl('<div class="col-sm-16 unmarked-item-checkbox">\
 				<div class="checkbox">\
 				<label style="display: block;"><input type="checkbox" class="item-check" item="%(item)s"/>\
+				<div><b>Date:&nbsp;</b>%(date)s &nbsp; </br> \
 				<div><b>Room:&nbsp;</b>%(item)s &nbsp; </br> \
 				<b>Group:&nbsp;</b>%(item_group)s &nbsp; <br> \
 				<b>Brand:&nbsp;</b>%(brand)s &nbsp; <br>  \
@@ -170,6 +172,7 @@ erpnext.Items_Sellector = Class.extend({
 				<b>Resort:&nbsp;</b>%(resort)s &nbsp;<br>  \
 				</label> &nbsp; <br> </div> \
 				</div><br></div>', {
+					date : m.date ,
 					item: m.name ,
 					item_group: m.item_group , 
 					brand: m.brand, 

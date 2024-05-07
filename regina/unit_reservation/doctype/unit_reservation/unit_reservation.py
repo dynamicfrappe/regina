@@ -81,7 +81,7 @@ class UnitReservation(WebsiteGenerator):
 		total_unpaid = 0
 		#get paper 
 		contract = frappe.get_doc("Contract" , self.contract )
-		payment_papers = frappe.get_list("Payment Paper" , {"serial_number" : contract.contract_serial_number} , {"due_date" , "total_amount" , "name" , "status"})
+		payment_papers = frappe.get_list("Payment Paper" , {"serial_number" : contract.serial_number} , {"due_date" , "total_amount" , "name" , "status"})
 		self.reservation_payment_paper =[]
 		for paper in payment_papers :
 			if paper.status in ["Partial Paid" , "Completed" ,"Pending"]:

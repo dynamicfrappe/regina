@@ -7,7 +7,13 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "year"
+  "year",
+  "start_date",
+  "start_day",
+  "end_date",
+  "end_day",
+  "active",
+  "amended_from"
  ],
  "fields": [
   {
@@ -15,11 +21,48 @@
    "fieldtype": "Data",
    "label": "Year",
    "unique": 1
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "start_day",
+   "fieldtype": "Data",
+   "label": "Start Day"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "end_day",
+   "fieldtype": "Data",
+   "label": "End Day"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Year",
+   "print_hide": 1,
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-01-16 12:05:34.710824",
+ "modified": "2024-05-07 11:23:17.161966",
  "modified_by": "Administrator",
  "module": "Unit Reservation",
  "name": "Year",

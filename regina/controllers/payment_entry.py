@@ -52,7 +52,7 @@ def update_payment_paper_customer():
     if len(incompleted_docs) > 0 :
         #get serial Contract Details 
         for serial in incompleted_docs :
-            contract = frappe.get_value("Contract" , {"contract_serial_number" : serial[0] ,"docstatus" :1} ,"party_name")
+            contract = frappe.get_value("Contract" , {"serial_number" : serial[0] ,"docstatus" :1} ,"party_name")
             if contract :
                 print("Contract" ,contract)
                 frappe.db.sql(f""" UPDATE `tabPayment Paper` set customer ='{contract}' WHERE  serial_number ='{serial[0]}'""") 

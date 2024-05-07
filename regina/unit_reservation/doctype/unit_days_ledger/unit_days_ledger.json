@@ -1,0 +1,145 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-07 04:38:06.555758",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "unit",
+  "contract",
+  "year",
+  "cuatomer",
+  "status",
+  "date",
+  "day_name",
+  "room_type",
+  "room_view",
+  "resort",
+  "group",
+  "brand",
+  "customer_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Unit",
+   "options": "Item"
+  },
+  {
+   "fieldname": "contract",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Contract ",
+   "options": "Contract"
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Year",
+   "options": "Year"
+  },
+  {
+   "fieldname": "cuatomer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Cuatomer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Available\nBusy"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Date"
+  },
+  {
+   "fieldname": "day_name",
+   "fieldtype": "Data",
+   "in_preview": 1,
+   "label": "Day Name"
+  },
+  {
+   "fetch_from": "unit.room_type",
+   "fieldname": "room_type",
+   "fieldtype": "Link",
+   "label": "room type",
+   "options": "Room Type"
+  },
+  {
+   "fetch_from": "unit.room_view",
+   "fieldname": "room_view",
+   "fieldtype": "Link",
+   "label": "Room View",
+   "options": "Room View"
+  },
+  {
+   "fetch_from": "unit.resort",
+   "fieldname": "resort",
+   "fieldtype": "Link",
+   "label": "Resort",
+   "options": "Resort"
+  },
+  {
+   "fetch_from": "unit.item_group",
+   "fetch_if_empty": 1,
+   "fieldname": "group",
+   "fieldtype": "Link",
+   "label": "Group",
+   "options": "Item Group"
+  },
+  {
+   "fetch_from": "unit.brand",
+   "fieldname": "brand",
+   "fieldtype": "Link",
+   "label": "Brand",
+   "options": "Brand"
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-07 11:23:45.869479",
+ "modified_by": "Administrator",
+ "module": "Unit Reservation",
+ "name": "Unit Days Ledger",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_name_in_global_search": 1,
+ "show_preview_popup": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

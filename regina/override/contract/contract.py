@@ -87,19 +87,19 @@ class Contract(Document):
 		self.validate_week_with_item()
 		
 	def validate_serial_number(self):
-		if self.contract_serial_number :
-			agent , status , contract = frappe.db.get_value("Contract Serial Number" ,self.contract_serial_number ,
+		if self.serial_number :
+			agent , status , contract = frappe.db.get_value("Contract Serial Number" ,self.serial_number ,
 					["agent" ,"status" ,"contract"] )
 			if contract :
-				frappe.throw(_(f""" Serial Number {self.contract_serial_number} already  Have a Contract :{contract} """))
+				frappe.throw(_(f""" Serial Number {self.serial_number} already  Have a Contract :{contract} """))
 			if status != "On Progress" :
-				frappe.throw(_(f""" serial number has invalid status {self.contract_serial_number} - {status}"""))
+				frappe.throw(_(f""" serial number has invalid status {self.serial_number} - {status}"""))
 			if agent != self.agent :
-				frappe.throw(_(f""" {self.contract_serial_number} -is assosiated with {agent} not {self.agent}"""))
+				frappe.throw(_(f""" {self.serial_number} -is assosiated with {agent} not {self.agent}"""))
 	def before_submit(self):
-		if self.contract_serial_number :
+		if self.serial_number :
 			self.validate_serial_number()
-			frappe.db.set_value("Contract Serial Number" ,self.contract_serial_number , {
+			frappe.db.set_value("Contract Serial Number" ,self.serial_number , {
 				"contract"  : self.name ,
 				"status" : "Completed"
 			} )
@@ -146,9 +146,9 @@ class Contract(Document):
 
 	def on_cancel(self) :
 		#re Set serial Status 
-		if self.contract_serial_number :
+		if self.serial_number :
 			
-			frappe.db.set_value("Contract Serial Number" ,self.contract_serial_number , {
+			frappe.db.set_value("Contract Serial Number" ,self.serial_number , {
 				"contract"  :None ,
 				"status" : "On Progress"
 			} )

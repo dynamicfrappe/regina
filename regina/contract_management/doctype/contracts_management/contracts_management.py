@@ -181,15 +181,17 @@ class ContractsManagement(Document):
 
 	@frappe.whitelist()				
 	def create_payment_paper(self) :
-		for item in self.items :
-			#create payment and payment paper 
-			paper = frappe.new_doc("Payment Paper Receive")
-			paper.date = item.receive_date 
-			paper.contract_serial_number = item.contract_serial_number 
-			paper.total_paper_count = item.total_payment_papers_count
-			paper.total_paper_amount = item.total_payment_papers	
-			paper.agent = self.agent	
-			paper.save()
+
+		if self.document_method != "Send" :
+			for item in self.items :
+				#create payment and payment paper 
+				paper = frappe.new_doc("Payment Paper Receive")
+				paper.date = item.receive_date 
+				paper.contract_serial_number = item.contract_serial_number 
+				paper.total_paper_count = item.total_payment_papers_count
+				paper.total_paper_amount = item.total_payment_papers	
+				paper.agent = self.agent	
+				paper.save()
 
 
 	@frappe.whitelist()
