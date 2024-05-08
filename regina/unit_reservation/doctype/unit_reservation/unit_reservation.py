@@ -137,5 +137,24 @@ class UnitReservation(WebsiteGenerator):
 	
 
 
+from frappe.model.mapper import get_mapped_doc
 
-			
+@frappe.whitelist()
+def create_reservation(source_name , target_doc=None):
+	doclist = get_mapped_doc(
+		"Unit Reservation",
+		source_name,
+		{
+			"Unit Reservation": {
+				"doctype": "Unit Reservation Tool",
+				"field_map": {
+					"unit": "unit",
+					# "payment_terms_template": "payment_terms_template",
+				},
+
+			},
+		},
+		target_doc,
+		ignore_permissions=True,
+	)
+	return doclist
