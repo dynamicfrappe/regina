@@ -22,6 +22,9 @@ frappe.ui.form.on('Unit Reservation Tool', {
 	},
 	room_view: function(frm) {
 		erpnext.unit_reservation_tool.load_items(frm);
+	},
+	get: function(frm) {
+		erpnext.unit_reservation_tool.load_items(frm);
 	}
 
 });
