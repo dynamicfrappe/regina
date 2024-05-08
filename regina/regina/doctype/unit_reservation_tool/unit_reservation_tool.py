@@ -51,7 +51,7 @@ def get_items(item_group = None , brand=None , room_view=None , room_type=None ,
 		applyed_filters.append ({"unit":item.name} )
 		print("applyed_filters ---- >" , applyed_filters)
 		ledger = frappe.get_list("Unit Days Ledger" , filters=applyed_filters ,
-			    fields =[ "brand" ,  "room_type" , "room_view" , "resort" , "group" , "date" , "status" ,"day_name"],
+			    fields =[ "brand" , "unit" ,"room_type" , "room_view" , "resort" , "group" , "date" , "status" ,"day_name" ,"name"],
 				order_by='date', )
 		print("Ledger --- > " ,ledger)
 		for componant in ledger :
@@ -70,7 +70,9 @@ def get_items(item_group = None , brand=None , room_view=None , room_type=None ,
 				# 	"item_group" :componant.group
 					
 				# } )
+				
 				data_list.append ({
+			
 					"date" : componant.date ,
 					"item_name" : item.item_name , 
 					"room_number" : item.room_number ,
@@ -82,8 +84,9 @@ def get_items(item_group = None , brand=None , room_view=None , room_type=None ,
 					"resort" :componant.resort ,
 					"item_group" :componant.group ,
 					"status" : componant.status ,
-					"day" :componant.day_name
-					
+					"day" :componant.day_name ,
+					"r_name" :componant.name
+ 					
 				})
 		obj["data"] = data_list
 		pr_data.append(obj)

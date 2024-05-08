@@ -109,36 +109,35 @@ erpnext.Items_Sellector = Class.extend({
 				var employee_present = [];
 				$(me.wrapper).find('input[type="checkbox"]').each(function(i, check) {
 					if($(check).is(":checked")) {
-						console.log(item)
-						employee_present.push(item[i]);
+						console.log(item[i])
+						// employee_present.push(item[i]);
 					}
 				});
-				// frappe.call({
-				// 	method: "erpnext.hr.doctype.employee_attendance_tool.employee_attendance_tool.mark_employee_attendance",
-				// 	args:{
-				// 		"employee_list":employee_present,
-				// 		"status":"Present",
-				// 		"date":frm.doc.date,
-				// 		"company":frm.doc.company
-				// 	},
+				 frappe.call({
+					method: "regina.controllers.items.check_as_reserved",
+					args:{
+						"items":employee_present,
+						"reserve":frm.doc.unit_reservation,
+						
+					},
 
-				// 	callback: function(r) {
-				// 		erpnext.employee_attendance_tool.load_employees(frm);
+					callback: function(r) {
+						erpnext.unit_reservation_tool.load_employees(frm);
 
-				// 	}
-				// });
+					}
+				});
 			});
 
-		mark_employee_toolbar.find(".btn-mark-absent")
-			.html(__('Unreserve'))
-			.on("click", function() {
-				var employee_absent = [];
-				$(me.wrapper).find('input[type="checkbox"]').each(function(i, check) {
-					if($(check).is(":checked")) {
-						console.log(item)
-						employee_absent.push(item[i]);
-					}
-				});
+		// mark_employee_toolbar.find(".btn-mark-absent")
+		// 	.html(__('Unreserve'))
+		// 	.on("click", function() {
+		// 		var employee_absent = [];
+		// 		$(me.wrapper).find('input[type="checkbox"]').each(function(i, check) {
+		// 			if($(check).is(":checked")) {
+		// 				console.log(item)
+		// 				employee_absent.push(item[i]);
+		// 			}
+		// 		});
 				// frappe.call({
 				// 	method: "erpnext.hr.doctype.employee_attendance_tool.employee_attendance_tool.mark_employee_attendance",
 				// 	args:{
@@ -153,24 +152,27 @@ erpnext.Items_Sellector = Class.extend({
 
 				// 	}
 				// });
-			});
+			// });
 
 
 		
 
 		var row;
+		var row2
 		$.each(item, function(i, m) {
-			// row = $('<div style = "justify-content: space-around;"class="row"></div>').appendTo(me.wrapper);
-			console.log(m)
+			 row = $('<div style = "justify-content: space-around;"class="row"></div>').appendTo(me.wrapper);
+			
 			$.each(m.data, function(e, f) {
-				console.log( "Status " ,f.status)
+				item["oo"] = f.r_name ;
+				console.log( "Status " ,item)
 				if (e===0 || (e % 4) === 0) {
-					row= $('<div style = "justify-content: space-around;"class="row"></div>').appendTo(me.wrapper);
+					row2= $('<div style = "justify-content: space-around;"class="row"></div>').appendTo(row);
 				}
 				// var row2 = $('<div style = "justify-content: space-around;"class="row"></div>').appendTo(row)
 				$(repl('<div class="col-sm-16 unmarked-item-checkbox" >\
-				<div class="checkbox">\
-				<label style="display: block;"><input type="%(data_type)s" class="item-check" %(disable)s item="%(item)s "/>\
+				<div class="%(data_type)s">\
+				<label style="display: block;">\
+				<input type="%(data_type)s" checked=0 class="%(data_calss)s" %(disable)s item="%(r_name)s  "/>\
 				<div style="background-color:%(color)s;!important"> <div style="background-color:yellow"> <b >Room Number:&nbsp;</b>%(room_number)s &nbsp; </div><br>  \
 				<div><b>Day:&nbsp;</b>%(day)s &nbsp; </br> \
 				<b>Date:&nbsp;</b>%(date)s &nbsp; </br> \
@@ -192,36 +194,13 @@ erpnext.Items_Sellector = Class.extend({
 					color : f.status === "Available" ?  "white" :"red" ,
 					disable :f.status === "Available" ?  "0" :"disabled" ,
 					data_type :f.status === "Available" ?  "checkbox" :"data" ,
-					day :f.day
+					data_calss :  f.status ===  "Available" ?  "item-check" :"data" ,
+					day :f.day ,
+					r_name:f.r_name
 
 				})).appendTo(row);
 			})
-			
-			// $('<hr>').appendTo(row)
 
-			// $(repl('<div class="col-sm-16 unmarked-item-checkbox">\
-			// 	<div class="checkbox">\
-			// 	<label style="display: block;"><input type="checkbox" class="item-check" item="%(item)s"/>\
-			// 	<div><b>Date:&nbsp;</b>%(date)s &nbsp; </br> \
-			// 	<div><b>Room:&nbsp;</b>%(item)s &nbsp; </br> \
-			// 	<b>Group:&nbsp;</b>%(item_group)s &nbsp; <br> \
-			// 	<b>Brand:&nbsp;</b>%(brand)s &nbsp; <br>  \
-			// 	<b>Room Number:&nbsp;</b>%(room_number)s &nbsp; <br>  \
-			// 	<b>Room View:&nbsp;</b>%(room_view)s &nbsp; <br>  \
-			// 	<b>Room Type:&nbsp;</b>%(room_type)s &nbsp;<br>  \
-			// 	<b>Resort:&nbsp;</b>%(resort)s &nbsp;<br>  \
-			// 	</label> &nbsp; <br> </div> \
-			// 	</div><br></div>', {
-			// 		date : m.date ,
-			// 		item: m.name ,
-			// 		item_group: m.item_group , 
-			// 		brand: m.brand, 
-			// 		room_number: m.room_number,
-			// 		room_view: m.room_view,
-			// 		room_type: m.room_type,
-			// 		resort: m.resort,
-
-			// 	})).appendTo(row);
 				
 		});
 

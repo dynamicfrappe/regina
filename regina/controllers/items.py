@@ -62,3 +62,8 @@ def get_item_reservation_data(year) :
 
          pro_date_update = add_to_date(pro_date , days =1 , as_string=True)
          pro_date = getdate(pro_date_update)
+
+
+@frappe.whitelist()
+def check_as_reserved(items=[] ,reserve = None ):
+   print(items)
