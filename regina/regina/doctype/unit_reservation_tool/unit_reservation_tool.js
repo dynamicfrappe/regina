@@ -106,6 +106,7 @@ erpnext.Items_Sellector = Class.extend({
 				var employee_present = [];
 				$(me.wrapper).find('input[type="checkbox"]').each(function(i, check) {
 					if($(check).is(":checked")) {
+						console.log(item)
 						employee_present.push(item[i]);
 					}
 				});
@@ -131,6 +132,7 @@ erpnext.Items_Sellector = Class.extend({
 				var employee_absent = [];
 				$(me.wrapper).find('input[type="checkbox"]').each(function(i, check) {
 					if($(check).is(":checked")) {
+						console.log(item)
 						employee_absent.push(item[i]);
 					}
 				});
@@ -166,11 +168,11 @@ erpnext.Items_Sellector = Class.extend({
 				$(repl('<div class="col-sm-16 unmarked-item-checkbox" >\
 				<div class="checkbox">\
 				<label style="display: block;"><input type="%(data_type)s" class="item-check" %(disable)s item="%(item)s "/>\
-				<div style="background-color:%(color)s;!important"><b>Date:&nbsp;</b>%(date)s &nbsp; </br> \
-				<div><b>Room:&nbsp;</b>%(item)s &nbsp; </br> \
+				<div style="background-color:%(color)s;!important"> <div style="background-color:yellow"> <b >Room Number:&nbsp;</b>%(room_number)s &nbsp; </div><br>  \
+				<div><b>Day:&nbsp;</b>%(day)s &nbsp; </br> \
+				<b>Date:&nbsp;</b>%(date)s &nbsp; </br> \
 				<b>Group:&nbsp;</b>%(item_group)s &nbsp; <br> \
 				<b>Brand:&nbsp;</b>%(brand)s &nbsp; <br>  \
-				<b>Room Number:&nbsp;</b>%(room_number)s &nbsp; <br>  \
 				<b>Room View:&nbsp;</b>%(room_view)s &nbsp; <br>  \
 				<b>Room Type:&nbsp;</b>%(room_type)s &nbsp;<br>  \
 				<b>Resort:&nbsp;</b>%(resort)s &nbsp;<br>  \
@@ -187,6 +189,7 @@ erpnext.Items_Sellector = Class.extend({
 					color : f.status === "Available" ?  "white" :"red" ,
 					disable :f.status === "Available" ?  "0" :"disabled" ,
 					data_type :f.status === "Available" ?  "checkbox" :"data" ,
+					day :f.day
 
 				})).appendTo(row);
 			})
