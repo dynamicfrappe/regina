@@ -39,22 +39,26 @@ def get_items(item_group = None , brand=None , room_view=None , room_type=None ,
 	
 	# get items and date range 
 
-	items = frappe.db.get_list("Item" ,filters=item_filters , fields =[ 'name' , 'item_name' ,"room_number"])
+	items = frappe.db.get_list("Item" ,filters=item_filters , fields =[ 'name' , 'item_name' ,
+								    "room_number" , "item_group","room_type" ,"room_view","brand"])
 	data = []
 	pr_data = []
 	for item in items :
 		print("Item --- >>>>>>>> " ,item)
 		obj= {"item" : item }
+		available =0 
+		busy= 0 
 		data_list = []
 		# get all item available dates 
 		applyed_filters = ledger_filetrs.copy()
 		applyed_filters.append ({"unit":item.name} )
 		print("applyed_filters ---- >" , applyed_filters)
 		ledger = frappe.get_list("Unit Days Ledger" , filters=applyed_filters ,
-			    fields =[ "brand" , "unit" ,"room_type" , "room_view" , "resort" , "group" , "date" , "status" ,"day_name" ,"name"],
+			    fields =[ "brand" , "unit" ,"room_type" , "room_view" , "resort" , "group" , "date" , "status" ,"day_name" ,"name","resort"],
 				order_by='date', )
 		print("Ledger --- > " ,ledger)
 		for componant in ledger :
+				color = "white"
 				applyed_filters = ledger_filetrs
 				print("ledger Filter" , ledger_filetrs)
 				# data.append({
@@ -70,7 +74,13 @@ def get_items(item_group = None , brand=None , room_view=None , room_type=None ,
 				# 	"item_group" :componant.group
 					
 				# } )
-				
+				if componant.status == "Available" :
+					available+=1
+				if componant.status == "Busy" :
+					busy+=1
+					color = "red"
+
+
 				data_list.append ({
 			
 					"date" : componant.date ,
@@ -85,10 +95,13 @@ def get_items(item_group = None , brand=None , room_view=None , room_type=None ,
 					"item_group" :componant.group ,
 					"status" : componant.status ,
 					"day" :componant.day_name ,
-					"r_name" :componant.name
+					"r_name" :componant.name,
+					"color" :color
  					
 				})
 		obj["data"] = data_list
+		obj["busy"] = busy
+		obj["available"] = available
 		pr_data.append(obj)
 				
 		

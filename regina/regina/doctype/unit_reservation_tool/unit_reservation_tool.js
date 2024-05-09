@@ -25,6 +25,9 @@ frappe.ui.form.on('Unit Reservation Tool', {
 	},
 	get: function(frm) {
 		erpnext.unit_reservation_tool.load_items(frm);
+	} ,
+	update: function(frm) {
+		erpnext.unit_reservation_tool.load_items(frm);
 	}
 
 });
@@ -158,48 +161,89 @@ erpnext.Items_Sellector = Class.extend({
 		
 
 		var row;
-		var row2
-		$.each(item, function(i, m) {
-			 row = $('<div style = "justify-content: space-around;"class="row"></div>').appendTo(me.wrapper);
+		var row2 ;
+		$.each(item, function(i,m ) {
+			 row = $(`<div style = "justify-content: space-around;"class="row"></div>`).appendTo(me.wrapper);
 			
-			$.each(m.data, function(e, f) {
-				item["oo"] = f.r_name ;
-				console.log( "Status " ,item)
-				if (e===0 || (e % 4) === 0) {
-					row2= $('<div style = "justify-content: space-around;"class="row"></div>').appendTo(row);
-				}
-				// var row2 = $('<div style = "justify-content: space-around;"class="row"></div>').appendTo(row)
-				$(repl('<div class="col-sm-16 unmarked-item-checkbox" >\
-				<div class="%(data_type)s">\
-				<label style="display: block;">\
-				<input type="%(data_type)s" checked=0 class="%(data_calss)s" %(disable)s item="%(r_name)s  "/>\
-				<div style="background-color:%(color)s;!important"> <div style="background-color:yellow"> <b >Room Number:&nbsp;</b>%(room_number)s &nbsp; </div><br>  \
-				<div><b>Day:&nbsp;</b>%(day)s &nbsp; </br> \
-				<b>Date:&nbsp;</b>%(date)s &nbsp; </br> \
-				<b>Group:&nbsp;</b>%(item_group)s &nbsp; <br> \
-				<b>Brand:&nbsp;</b>%(brand)s &nbsp; <br>  \
-				<b>Room View:&nbsp;</b>%(room_view)s &nbsp; <br>  \
-				<b>Room Type:&nbsp;</b>%(room_type)s &nbsp;<br>  \
-				<b>Resort:&nbsp;</b>%(resort)s &nbsp;<br>  \
-				</label> &nbsp; <br> </div> \
-				</div><br></div>', {
-					date : f.date ,
-					item: f.name ,
-					item_group: f.item_group , 
-					brand: f.brand, 
-					room_number: f.room_number,
-					room_view: f.room_view,
-					room_type: f.room_type,
-					resort: f.resort,
-					color : f.status === "Available" ?  "white" :"red" ,
-					disable :f.status === "Available" ?  "0" :"disabled" ,
-					data_type :f.status === "Available" ?  "checkbox" :"data" ,
-					data_calss :  f.status ===  "Available" ?  "item-check" :"data" ,
-					day :f.day ,
-					r_name:f.r_name
 
-				})).appendTo(row);
-			})
+			 $(repl(`<div class="col-sm-16 unmarked-item-checkbox" >\
+			 <div class="checkbox">\
+			 <label style="display: block;">\
+			 <input type="checkbox" class="item-check"   item="item"/>\
+			 <div > <div style="background-color:yellow"> <b >Room Number:&nbsp;</b>%(room_number)s &nbsp; </div><br>
+			 <b>Unit:&nbsp;</b>%(item)s &nbsp; <br> \  \
+			 <b>Group:&nbsp;</b>%(item_group)s &nbsp; <br> \
+			 <b>Brand:&nbsp;</b>%(brand)s &nbsp; <br>  \
+			 <b>Room View:&nbsp;</b>%(room_view)s &nbsp; <br>  \
+			 <b>Room Type:&nbsp;</b>%(room_type)s &nbsp;<br>  \
+			 <b>Resort:&nbsp;</b>%(resort)s &nbsp;<br>  \
+			 <b>availadle:&nbsp;</b>%(availadle)s &nbsp;<br>  \
+			 <b>busy:&nbsp;</b>%(busy)s &nbsp;<br>  \
+			 </label> &nbsp; <br> </div> \
+			 </div><br></div>`, {
+				 item: m.item.name ,
+				 item_group: m.item.item_group , 
+				 brand: m.item.brand, 
+				 room_number: m.item.room_number,
+				 room_view: m.item.room_view,
+				 room_type: m.item.room_type,
+				 resort: m.item.resort,
+				 availadle:m.available,
+				 busy:m.busy	,
+						
+
+			 })).appendTo(row);
+
+
+			 row = $(`<div style = "justify-content: space-around;"class="row"></div>`).appendTo(me.wrapper);
+			 m.data.forEach(element => {
+				$(`<div > 
+				<div class="col-sm-12 unmarked-item-checkbox" >
+				<label style="display: block;">\
+				<div  style="background-color:yellow"> <b >Date:&nbsp;</b> ${element.date} &nbsp; / ${element.day}</div> <br> \
+				<div style="background-color:${element.color}"> <b>status:&nbsp;</b> ${element.status} &nbsp; </div> <br>\
+				</label>
+				 </div></div><br>` ).appendTo(row);
+			  });
+			// $.each(m.data, function(e, f) {
+			// 	item["oo"] = f.r_name ;
+			// 	console.log( "Status " ,item)
+			// 	if (e===0 || (e % 4) === 0) {
+			// 		row2= $('<div style = "justify-content: space-around;"class="row"></div>').appendTo(row);
+			// 	}
+			// 	// var row2 = $('<div style = "justify-content: space-around;"class="row"></div>').appendTo(row)
+			// 	$(repl('<div class="col-sm-16 unmarked-item-checkbox" >\
+			// 	<div class="checkbox">\
+			// 	<label style="display: block;">\
+			// 	<input type="checkbox" checked=0 class="%(data_calss)s" %(disable)s item="%(r_name)s  "/>\
+			// 	<div style="background-color:%(color)s;!important"> <div style="background-color:yellow"> \
+			// 	<b >Room Number:&nbsp;</b>%(room_number)s &nbsp; </div><br>  \
+			// 	<div><b>Day:&nbsp;</b>%(day)s &nbsp; </br> \
+			// 	<b>Date:&nbsp;</b>%(date)s &nbsp; </br> \
+			// 	<b>Group:&nbsp;</b>%(item_group)s &nbsp; <br> \
+			// 	<b>Brand:&nbsp;</b>%(brand)s &nbsp; <br>  \
+			// 	<b>Room View:&nbsp;</b>%(room_view)s &nbsp; <br>  \
+			// 	<b>Room Type:&nbsp;</b>%(room_type)s &nbsp;<br>  \
+			// 	<b>Resort:&nbsp;</b>%(resort)s &nbsp;<br>  \
+			// 	</label> &nbsp; <br> </div> \
+			// 	</div><br></div>', {
+			// 		date : f.date ,
+			// 		item: f.name ,
+			// 		item_group: f.item_group , 
+			// 		brand: f.brand, 
+			// 		room_number: f.room_number,
+			// 		room_view: f.room_view,
+			// 		room_type: f.room_type,
+			// 		resort: f.resort,
+			// 		color : f.status === "Available" ?  "white" :"red" ,
+			// 		disable :f.status === "Available" ?  "0" :"disabled" ,
+			// 		data_type :f.status === "Available" ?  "checkbox" :"data" ,
+			// 		data_calss :  f.status ===  "Available" ?  "item-check" :"data" ,
+			// 		day :f.day ,
+			// 		r_name:f.r_name
+
+			// 	})).appendTo(row);
+			
 
 				
 		});

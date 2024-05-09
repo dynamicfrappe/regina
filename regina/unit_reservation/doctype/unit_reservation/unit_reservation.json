@@ -8,12 +8,12 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "contract",
+  "contract_number",
   "customer",
   "national_id",
   "mobil_number",
-  "contract",
   "agent",
-  "contract_number",
   "status",
   "column_break_2",
   "posting_date",
@@ -99,7 +99,7 @@
   {
    "fieldname": "contract",
    "fieldtype": "Link",
-   "label": "Contract",
+   "label": "Contract Details",
    "options": "Contract"
   },
   {
@@ -300,7 +300,7 @@
    "options": "Item"
   },
   {
-   "fetch_from": "contarct.contract_serial_number",
+   "fetch_from": "contarct.serial_number",
    "fieldname": "contract_number",
    "fieldtype": "Data",
    "label": "Contract Number"
@@ -390,7 +390,7 @@
    "default": "0",
    "fieldname": "stlc",
    "fieldtype": "Check",
-   "label": "STLC"
+   "label": "RCI"
   },
   {
    "depends_on": "eval:doc.outer == 1 || doc.stlc == 1",
@@ -422,7 +422,7 @@
  "is_published_field": "published",
  "is_submittable": 1,
  "links": [],
- "modified": "2024-05-08 10:22:25.452621",
+ "modified": "2024-05-08 13:24:12.798727",
  "modified_by": "Administrator",
  "module": "Unit Reservation",
  "name": "Unit Reservation",

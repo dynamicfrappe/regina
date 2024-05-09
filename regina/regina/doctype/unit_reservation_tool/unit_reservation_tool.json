@@ -15,6 +15,7 @@
   "item_group",
   "brand",
   "room_view",
+  "update",
   "column_break_vkf6g",
   "room_type",
   "unit",
@@ -93,12 +94,17 @@
    "fieldname": "to_date",
    "fieldtype": "Date",
    "label": "To"
+  },
+  {
+   "fieldname": "update",
+   "fieldtype": "Button",
+   "label": "Update"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-04-21 10:57:43.183339",
+ "modified": "2024-05-08 12:00:49.954039",
  "modified_by": "Administrator",
  "module": "Regina",
  "name": "Unit Reservation Tool",
