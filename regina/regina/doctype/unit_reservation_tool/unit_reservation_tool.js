@@ -70,9 +70,10 @@ erpnext.Items_Sellector = Class.extend({
 		this.frm = frm;
 		this.make(frm, item);
 	},
+   
 	make: function(frm, item) {
 		var me = this;
-
+		
 		$(this.wrapper).empty();
 
 		
@@ -113,7 +114,10 @@ erpnext.Items_Sellector = Class.extend({
 				$(me.wrapper).find('input[type="checkbox"]').each(function(i, check) {
 					if($(check).is(":checked")) {
 						console.log(item[i])
-						// employee_present.push(item[i]);
+						employee_present.push(item[i]);
+						frm.doc.unit = item[i].item.name
+						frm.refresh_field("unit")
+						
 					}
 				});
 				 frappe.call({
@@ -123,39 +127,13 @@ erpnext.Items_Sellector = Class.extend({
 						"reserve":frm.doc.unit_reservation,
 						
 					},
-
+					async : false ,
 					callback: function(r) {
 						erpnext.unit_reservation_tool.load_employees(frm);
 
 					}
 				});
 			});
-
-		// mark_employee_toolbar.find(".btn-mark-absent")
-		// 	.html(__('Unreserve'))
-		// 	.on("click", function() {
-		// 		var employee_absent = [];
-		// 		$(me.wrapper).find('input[type="checkbox"]').each(function(i, check) {
-		// 			if($(check).is(":checked")) {
-		// 				console.log(item)
-		// 				employee_absent.push(item[i]);
-		// 			}
-		// 		});
-				// frappe.call({
-				// 	method: "erpnext.hr.doctype.employee_attendance_tool.employee_attendance_tool.mark_employee_attendance",
-				// 	args:{
-				// 		"employee_list":employee_absent,
-				// 		"status":"Absent",
-				// 		"date":frm.doc.date,
-				// 		"company":frm.doc.company
-				// 	},
-
-				// 	callback: function(r) {
-				// 		erpnext.employee_attendance_tool.load_employees(frm);
-
-				// 	}
-				// });
-			// });
 
 
 		
@@ -180,7 +158,9 @@ erpnext.Items_Sellector = Class.extend({
 			 <b>availadle:&nbsp;</b>%(availadle)s &nbsp;<br>  \
 			 <b>busy:&nbsp;</b>%(busy)s &nbsp;<br>  \
 			 </label> &nbsp; <br> </div> \
-			 </div><br></div>`, {
+			 </div><button class="btn btn-xs btn-primary btn-show-more-%(item)s"> Show More </button><br>
+			 <button class="btn btn-xs btn-denger btn-show-less-%(item)s"> Show Less </button> <br>
+			 </div><br>`, {
 				 item: m.item.name ,
 				 item_group: m.item.item_group , 
 				 brand: m.item.brand, 
@@ -193,57 +173,45 @@ erpnext.Items_Sellector = Class.extend({
 						
 
 			 })).appendTo(row);
+	
 
-
-			 row = $(`<div style = "justify-content: space-around;"class="row"></div>`).appendTo(me.wrapper);
+			 row = $(`<div  id='${m.item.name}' hidden style = "justify-content: space-around;"class="row"></div>`).appendTo(me.wrapper);
 			 m.data.forEach(element => {
-				$(`<div > 
+				$(`<div > <div class="checkbox">\
+				<input type="checkbox" class="item-check"   item="item"/>
 				<div class="col-sm-12 unmarked-item-checkbox" >
 				<label style="display: block;">\
 				<div  style="background-color:yellow"> <b >Date:&nbsp;</b> ${element.date} &nbsp; / ${element.day}</div> <br> \
 				<div style="background-color:${element.color}"> <b>status:&nbsp;</b> ${element.status} &nbsp; </div> <br>\
 				</label>
-				 </div></div><br>` ).appendTo(row);
-			  });
-			// $.each(m.data, function(e, f) {
-			// 	item["oo"] = f.r_name ;
-			// 	console.log( "Status " ,item)
-			// 	if (e===0 || (e % 4) === 0) {
-			// 		row2= $('<div style = "justify-content: space-around;"class="row"></div>').appendTo(row);
-			// 	}
-			// 	// var row2 = $('<div style = "justify-content: space-around;"class="row"></div>').appendTo(row)
-			// 	$(repl('<div class="col-sm-16 unmarked-item-checkbox" >\
-			// 	<div class="checkbox">\
-			// 	<label style="display: block;">\
-			// 	<input type="checkbox" checked=0 class="%(data_calss)s" %(disable)s item="%(r_name)s  "/>\
-			// 	<div style="background-color:%(color)s;!important"> <div style="background-color:yellow"> \
-			// 	<b >Room Number:&nbsp;</b>%(room_number)s &nbsp; </div><br>  \
-			// 	<div><b>Day:&nbsp;</b>%(day)s &nbsp; </br> \
-			// 	<b>Date:&nbsp;</b>%(date)s &nbsp; </br> \
-			// 	<b>Group:&nbsp;</b>%(item_group)s &nbsp; <br> \
-			// 	<b>Brand:&nbsp;</b>%(brand)s &nbsp; <br>  \
-			// 	<b>Room View:&nbsp;</b>%(room_view)s &nbsp; <br>  \
-			// 	<b>Room Type:&nbsp;</b>%(room_type)s &nbsp;<br>  \
-			// 	<b>Resort:&nbsp;</b>%(resort)s &nbsp;<br>  \
-			// 	</label> &nbsp; <br> </div> \
-			// 	</div><br></div>', {
-			// 		date : f.date ,
-			// 		item: f.name ,
-			// 		item_group: f.item_group , 
-			// 		brand: f.brand, 
-			// 		room_number: f.room_number,
-			// 		room_view: f.room_view,
-			// 		room_type: f.room_type,
-			// 		resort: f.resort,
-			// 		color : f.status === "Available" ?  "white" :"red" ,
-			// 		disable :f.status === "Available" ?  "0" :"disabled" ,
-			// 		data_type :f.status === "Available" ?  "checkbox" :"data" ,
-			// 		data_calss :  f.status ===  "Available" ?  "item-check" :"data" ,
-			// 		day :f.day ,
-			// 		r_name:f.r_name
-
-			// 	})).appendTo(row);
+				 </div>
+	</div><br>` ).appendTo(row);
 			
+			
+			
+
+			  });
+			
+			  me.wrapper.find(`.btn-show-more-${m.item.name}`)
+			  .html(__('Show More'))
+			  .on("click", function(e) {
+				  console.log("Here we are !",i ,m.item.room_number)
+				  var sect =  me.wrapper.find(`#${m.item.name}`)
+				   console.log(sect[0].removeAttribute('hidden'))
+				   
+				   
+			  });
+
+
+			  me.wrapper.find(`.btn-show-less-${m.item.name}`)
+			  .html(__('Show Less')).on("click", function(e) {
+				console.log("Here we are !",i ,m.item.room_number)
+				var sect =  me.wrapper.find(`#${m.item.name}`)
+				
+				 console.log(sect[0].setAttribute('hidden' , "1"))
+				 
+				 
+			});
 
 				
 		});

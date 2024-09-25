@@ -9,24 +9,34 @@ class UnitReservationTool(Document):
 
 
 @frappe.whitelist()
-def get_items(item_group = None , brand=None , room_view=None , room_type=None , 
-	      				unit=None , start_date = None ,end_date =None):
+def get_items(item_group = None , brand=None , room_view=None , room_type=[] , 
+	      				unit=None , start_date = None ,end_date =None ,check_in=None) :
+	
+	import json
 	# item_marked = []
 	# item_unmarked = []
+
+
+	roomtype = [room.get("room_type") for room  in json.loads(room_type) ] if len(room_type) > 0 else []
+	print(roomtype)
 	item_filters = {
 		"item_group" : item_group , 
 		"brand"      : brand , 
 		"room_view"  : room_view , 
-		"room_type"  : room_type , 
+		# "room_type"  : ["in" ,roomtype] , 
 		"name"       : unit   ,
+		"check_in_day":check_in
 	}
+	if len(roomtype) > 0  :
+		item_filters["room_type"] = ["in"  , roomtype]
+
 	ledger_filetrs = [] 
 	if item_group :
 		ledger_filetrs.append({"group" : item_group})
 	if room_view :
 		ledger_filetrs.append({"room_view" : room_view})
-	if room_type :
-		ledger_filetrs.append({"room_type" : room_type})
+	# if room_type :
+	# 	ledger_filetrs.append({"room_type" : ["in" ,roomtype]})
 	if unit :
 		ledger_filetrs.append({"unit" : unit})
 
@@ -40,7 +50,7 @@ def get_items(item_group = None , brand=None , room_view=None , room_type=None ,
 	# get items and date range 
 
 	items = frappe.db.get_list("Item" ,filters=item_filters , fields =[ 'name' , 'item_name' ,
-								    "room_number" , "item_group","room_type" ,"room_view","brand"])
+								    "room_number" , "item_group","room_type" ,"room_view","brand" , "check_in_day"])
 	data = []
 	pr_data = []
 	for item in items :

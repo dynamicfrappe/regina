@@ -8,13 +8,16 @@
  "field_order": [
   "counsel",
   "status",
+  "collector",
   "column_break_2",
   "contract",
   "payment_paper",
   "section_break_4",
   "data_7",
   "notes",
+  "template",
   "section_break_6",
+  "data",
   "items",
   "amended_from"
  ],
@@ -52,6 +55,7 @@
   {
    "fieldname": "items",
    "fieldtype": "Table",
+   "hidden": 1,
    "label": "Items",
    "options": "Contract Cancellation Items"
   },
@@ -69,7 +73,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Status",
-   "options": "Completed\nCanceled"
+   "options": "\nCompleted\nCanceled"
   },
   {
    "fieldname": "payment_paper",
@@ -80,12 +84,30 @@
   {
    "fieldname": "data_7",
    "fieldtype": "Data"
+  },
+  {
+   "fieldname": "template",
+   "fieldtype": "Link",
+   "label": "template",
+   "options": "Contract cancelation"
+  },
+  {
+   "fieldname": "data",
+   "fieldtype": "Table",
+   "label": "data",
+   "options": "Contract Cancellation Items"
+  },
+  {
+   "fieldname": "collector",
+   "fieldtype": "Link",
+   "label": "Collector",
+   "options": "User"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-03-20 09:05:41.397870",
+ "modified": "2024-05-13 14:56:28.001978",
  "modified_by": "Administrator",
  "module": "Contract Management",
  "name": "Contract Cancellation",

@@ -1,0 +1,30 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-12 16:53:42.485589",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "room_type"
+ ],
+ "fields": [
+  {
+   "fieldname": "room_type",
+   "fieldtype": "Link",
+   "label": "Room Type",
+   "options": "Room Type"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-05-12 16:53:42.485589",
+ "modified_by": "Administrator",
+ "module": "Unit Reservation",
+ "name": "Reservation unit type",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

@@ -66,4 +66,22 @@ def get_item_reservation_data(year) :
 
 @frappe.whitelist()
 def check_as_reserved(items=[] ,reserve = None ):
-   print(items)
+   import json 
+   data_to_print = ""
+   if not reserve :
+      frappe.throw("No reservation found !")
+
+   #reservation = frappe.db.get_doc("Unit Reservation" , reserve)
+   items_data = json.loads(items)
+   for item in items_data :
+      print(item.get("item"))
+      for data in item.get("data") :
+         ledger = frappe.get_doc("Unit Days Ledger" , data.get("name")) 
+         ledger.status ="Busy"
+         ledger.reservation = reserve
+         # ledger.contract = reservation.contract
+         # ledger.cuatomer = reservation.customer
+         ledger.save()
+         data_to_print = data_to_print +f" Day {ledger.date}  Reserved <br>"
+
+   frappe.msgprint(data_to_print)

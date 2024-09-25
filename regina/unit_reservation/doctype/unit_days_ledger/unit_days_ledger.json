@@ -18,7 +18,8 @@
   "resort",
   "group",
   "brand",
-  "customer_name"
+  "customer_name",
+  "reservation"
  ],
  "fields": [
   {
@@ -115,11 +116,17 @@
    "fieldname": "customer_name",
    "fieldtype": "Data",
    "label": "Customer Name"
+  },
+  {
+   "fieldname": "reservation",
+   "fieldtype": "Link",
+   "label": "Reservation",
+   "options": "Unit Reservation"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-07 11:23:45.869479",
+ "modified": "2024-05-12 17:15:15.049365",
  "modified_by": "Administrator",
  "module": "Unit Reservation",
  "name": "Unit Days Ledger",

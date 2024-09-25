@@ -11,13 +11,17 @@
   "unit_reservation",
   "column_break_lvkco",
   "to_date",
+  "week_number",
   "section_break_gapoi",
+  "week_days",
+  "section_break_9",
   "item_group",
+  "room_type",
   "brand",
+  "check_in_day",
   "room_view",
   "update",
   "column_break_vkf6g",
-  "room_type",
   "unit",
   "marked_items_section",
   "marked_item_html"
@@ -41,7 +45,8 @@
    "fieldname": "unit_reservation",
    "fieldtype": "Link",
    "label": "Unit Reservation",
-   "options": "Unit Reservation"
+   "options": "Unit Reservation",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_lvkco",
@@ -75,9 +80,9 @@
   },
   {
    "fieldname": "room_type",
-   "fieldtype": "Link",
+   "fieldtype": "Table MultiSelect",
    "label": "Room Type",
-   "options": "Room Type"
+   "options": "Reservation unit type"
   },
   {
    "fieldname": "unit",
@@ -99,12 +104,34 @@
    "fieldname": "update",
    "fieldtype": "Button",
    "label": "Update"
+  },
+  {
+   "fieldname": "check_in_day",
+   "fieldtype": "Select",
+   "label": "Check in day",
+   "options": "Satrday\nSunday"
+  },
+  {
+   "fieldname": "week_number",
+   "fieldtype": "Select",
+   "label": "Week Number",
+   "options": "1\n2\n3\n4\n5\n6\n7"
+  },
+  {
+   "fieldname": "week_days",
+   "fieldtype": "Table",
+   "label": "Week Days",
+   "options": "Week Days"
+  },
+  {
+   "fieldname": "section_break_9",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-05-08 12:00:49.954039",
+ "modified": "2024-05-13 13:45:55.207381",
  "modified_by": "Administrator",
  "module": "Regina",
  "name": "Unit Reservation Tool",
